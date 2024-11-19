@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Indigo Soul Quest</title>
+    <style>
+        :root {
+            --blue-dark: #0d47a1;
+            --blue-main: #1976d2;
+            --blue-light: #42a5f5;
+            --blue-accent: #90caf9;
+            --dark-bg: #000000;
+            --darker-bg: #0a0a0a;
+            --text-light: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Copy all styles from index.html (from .hero to the end of @media queries) */
+        
+        /* Add a specific style for the pricing page hero */
+        .pricing-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('Banner_1.webp');
+            height: 40vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .pricing-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Ensure the pricing grid is properly styled */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .pricing-card {
+            background-color: rgba(25, 118, 210, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--blue-main);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(25, 118, 210, 0.2);
+        }
+
+        .pricing-card h3 {
+            color: var(--blue-light);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2rem;
+            color: var(--blue-light);
+            margin: 1rem 0;
+        }
+
+        .pricing-card .features {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .pricing-card .features li {
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .join-button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background-color: var(--blue-main);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .join-button:hover {
+            background-color: var(--blue-light);
+            transform: scale(1.05);
+        }
+
+        /* Copy all the navbar, footer, and media query styles from index.html */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(66, 165, 245, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: var(--blue-light);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(66, 165, 245, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--blue-accent);
+            text-shadow: 0 0 15px rgba(66, 165, 245, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--blue-light);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-light);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--blue-light);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            color: var(--blue-accent);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 1rem;
+                border-bottom: 1px solid rgba(66, 165, 245, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                animation: slideDown 0.3s ease-out;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .nav-content {
+                padding: 0 1.5rem;
+            }
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: #6B6B9B;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--blue-light);
+        }
+
+        .copyright {
+            color: #6B6B9B;
+            font-size: 0.9rem;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">Indigo Soul Quest</a>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="index.html#experience">Experience</a>
+                <a href="index.html#donation">Donation</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pricing-contact" id="pricing">
+        <div class="section-content">
+            <h2>Choose Your Journey</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="card-image">
+                        <img src="shared-room.webp" alt="Shared Room Experience">
+                    </div>
+                    <h3>7-Day Experience</h3>
+                    <p class="price">$1,999 USD</p>
+                    <ul class="features">
+                        <li>Shared Accommodation</li>
+                        <li>3 Daily Meals</li>
+                        <li>Airport Transfer</li>
+                        <li>Yoga & Meditation Sessions</li>
+                        <li>Surfing Lessons</li>
+                        <li>Sacred Ceremonies</li>
+                        <li>Personal Guide</li>
+                        <li>Advanced Workshops</li>
+                        <li>Healing Sessions</li>
+                        <li>Local Excursions</li>
+                        <li>Integration Support</li>
+                    </ul>
+                    <button class="join-button">Book Now</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="card-image">
+                        <img src="private-room.webp" alt="Private Room Experience">
+                    </div>
+                    <h3>7-Day Experience</h3>
+                    <p class="price">$2,499 USD</p>
+                    <ul class="features">
+                        <li>Private Accommodation</li>
+                        <li>3 Daily Meals</li>
+                        <li>Airport Transfer</li>
+                        <li>Yoga & Meditation Sessions</li>
+                        <li>Surfing Lessons</li>
+                        <li>Sacred Ceremonies</li>
+                        <li>Personal Guide</li>
+                        <li>Advanced Workshops</li>
+                        <li>Healing Sessions</li>
+                        <li>Local Excursions</li>
+                        <li>Integration Support</li>
+                    </ul>
+                    <button class="join-button">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://www.instagram.com/plantastic.experience" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copyright">© 2024 Indigo Soul Quest. All rights reserved.</p>
+    </footer>
+</body>
+</html>

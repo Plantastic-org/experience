@@ -598,6 +598,35 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--blue-light);
+        }
+
+        .copyright {
+            color: var(--text-light);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -624,7 +653,7 @@
     <section class="hero">
         <h1>Indigo Soul Quest</h1>
         <p class="tagline">Embark on a transformative journey of self-discovery and spiritual growth</p>
-        <button class="join-button">Join Here</button>
+        <button class="join-button" onclick="window.location.href='Pricing.html'">Join Here</button>
     </section>
 
     <section class="activities">
