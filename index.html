@@ -6,12 +6,13 @@
     <title>Indigo Soul Quest</title>
     <style>
         :root {
-            --indigo-dark: #1a237e;
-            --indigo-main: #3f51b5;
-            --indigo-light: #7986cb;
-            --indigo-accent: #9fa8da;
-            --dark-bg: #121212;
-            --text-light: #e0e0e0;
+            --blue-dark: #0d47a1;
+            --blue-main: #1976d2;
+            --blue-light: #42a5f5;
+            --blue-accent: #90caf9;
+            --dark-bg: #000000;
+            --darker-bg: #0a0a0a;
+            --text-light: #ffffff;
         }
 
         body {
@@ -53,7 +54,7 @@
         .join-button {
             padding: 1rem 2rem;
             font-size: 1.2rem;
-            background-color: var(--indigo-main);
+            background-color: var(--blue-main);
             color: white;
             border: none;
             border-radius: 30px;
@@ -62,13 +63,13 @@
         }
 
         .join-button:hover {
-            background-color: var(--indigo-light);
+            background-color: var(--blue-light);
             transform: scale(1.05);
         }
 
         .activities {
             padding: 4rem 2rem;
-            background-color: rgba(26, 35, 126, 0.1);
+            background-color: var(--darker-bg);
         }
 
         .activities-grid {
@@ -80,27 +81,27 @@
         }
 
         .activity-card {
-            background-color: rgba(63, 81, 181, 0.1);
+            background-color: rgba(25, 118, 210, 0.1);
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
-            border: 1px solid var(--indigo-main);
+            border: 1px solid var(--blue-main);
             transition: all 0.3s ease;
         }
 
         .activity-card:hover {
             transform: translateY(-5px);
-            background-color: rgba(63, 81, 181, 0.2);
+            background-color: rgba(25, 118, 210, 0.2);
         }
 
         .activity-card h3 {
-            color: var(--indigo-light);
+            color: var(--blue-light);
             margin-bottom: 1rem;
         }
 
         .activity-card i {
             font-size: 2.5rem;
-            color: var(--indigo-light);
+            color: var(--blue-light);
             margin-bottom: 1rem;
         }
 
@@ -108,7 +109,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(18, 18, 18, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             padding: 1rem 0;
             z-index: 1000;
         }
@@ -142,11 +143,11 @@
         }
 
         .nav-links a:hover {
-            color: var(--indigo-light);
+            color: var(--blue-light);
         }
 
         footer {
-            background-color: #0C0C1D;
+            background-color: #000000;
             padding: 3rem 2rem;
             text-align: center;
         }
@@ -169,7 +170,7 @@
         }
 
         .social-links a:hover {
-            color: var(--indigo-light);
+            color: var(--blue-light);
         }
 
         .copyright {
@@ -179,7 +180,7 @@
 
         .location {
             padding: 4rem 2rem;
-            background-color: rgba(26, 35, 126, 0.1);
+            background-color: var(--darker-bg);
         }
 
         .location-grid {
@@ -191,21 +192,21 @@
         }
 
         .location-info {
-            background-color: rgba(63, 81, 181, 0.1);
+            background-color: rgba(25, 118, 210, 0.1);
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
-            border: 1px solid var(--indigo-main);
+            border: 1px solid var(--blue-main);
             transition: all 0.3s ease;
         }
 
         .location-info:hover {
             transform: translateY(-5px);
-            background-color: rgba(63, 81, 181, 0.2);
+            background-color: rgba(25, 118, 210, 0.2);
         }
 
         .location-info h3 {
-            color: var(--indigo-light);
+            color: var(--blue-light);
             margin-bottom: 1rem;
         }
 
@@ -215,7 +216,7 @@
         }
 
         .map-placeholder {
-            background-color: rgba(63, 81, 181, 0.1);
+            background-color: rgba(25, 118, 210, 0.1);
             height: 300px;
             border-radius: 10px;
             display: flex;
@@ -225,7 +226,7 @@
 
         .facilitators {
             padding: 4rem 2rem;
-            background-color: rgba(26, 35, 126, 0.1);
+            background-color: var(--darker-bg);
         }
 
         .facilitators-grid {
@@ -237,21 +238,21 @@
         }
 
         .facilitator-card {
-            background-color: rgba(63, 81, 181, 0.1);
+            background-color: rgba(25, 118, 210, 0.1);
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
-            border: 1px solid var(--indigo-main);
+            border: 1px solid var(--blue-main);
             transition: all 0.3s ease;
         }
 
         .facilitator-card:hover {
             transform: translateY(-5px);
-            background-color: rgba(63, 81, 181, 0.2);
+            background-color: rgba(25, 118, 210, 0.2);
         }
 
         .facilitator-card h3 {
-            color: var(--indigo-light);
+            color: var(--blue-light);
             margin-bottom: 1rem;
         }
 
@@ -261,7 +262,7 @@
         }
 
         .facilitator-image {
-            background-color: rgba(63, 81, 181, 0.1);
+            background: rgba(25, 118, 210, 0.1) !important;
             height: 200px;
             width: 200px;
             border-radius: 50%;
@@ -270,7 +271,7 @@
 
         .pricing-contact {
             padding: 4rem 2rem;
-            background-color: rgba(26, 35, 126, 0.1);
+            background-color: var(--darker-bg);
         }
 
         .pricing-grid {
@@ -282,28 +283,28 @@
         }
 
         .pricing-card {
-            background-color: rgba(63, 81, 181, 0.1);
+            background-color: rgba(25, 118, 210, 0.1);
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
-            border: 1px solid var(--indigo-main);
+            border: 1px solid var(--blue-main);
             transition: all 0.3s ease;
         }
 
         .pricing-card:hover {
             transform: translateY(-5px);
-            background-color: rgba(63, 81, 181, 0.2);
+            background-color: rgba(25, 118, 210, 0.2);
         }
 
         .pricing-card h3 {
-            color: var(--indigo-light);
+            color: var(--blue-light);
             margin-bottom: 1rem;
         }
 
         .pricing-card .price {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--indigo-light);
+            color: var(--blue-light);
             margin-bottom: 1rem;
         }
 
@@ -322,7 +323,7 @@
         .pricing-card button {
             padding: 1rem 2rem;
             font-size: 1.2rem;
-            background-color: var(--indigo-main);
+            background-color: var(--blue-main);
             color: white;
             border: none;
             border-radius: 30px;
@@ -331,26 +332,26 @@
         }
 
         .pricing-card button:hover {
-            background-color: var(--indigo-light);
+            background-color: var(--blue-light);
             transform: scale(1.05);
         }
 
         .contact-info {
-            background-color: rgba(63, 81, 181, 0.1);
+            background-color: rgba(25, 118, 210, 0.1);
             padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
-            border: 1px solid var(--indigo-main);
+            border: 1px solid var(--blue-main);
             transition: all 0.3s ease;
         }
 
         .contact-info:hover {
             transform: translateY(-5px);
-            background-color: rgba(63, 81, 181, 0.2);
+            background-color: rgba(25, 118, 210, 0.2);
         }
 
         .contact-info h3 {
-            color: var(--indigo-light);
+            color: var(--blue-light);
             margin-bottom: 1rem;
         }
 
@@ -372,7 +373,7 @@
 
         h2 {
             text-align: center;
-            color: var(--indigo-light);
+            color: var(--blue-light);
             margin-bottom: 3rem;
             font-size: 2.5rem;
         }
@@ -386,7 +387,7 @@
 
         .facilitator-card {
             padding: 2rem;
-            background-color: rgba(63, 81, 181, 0.1);
+            background-color: rgba(25, 118, 210, 0.1);
             border-radius: 10px;
             transition: transform 0.3s ease;
         }
@@ -403,7 +404,7 @@
         }
 
         .pricing-card {
-            background-color: rgba(63, 81, 181, 0.1);
+            background-color: rgba(25, 118, 210, 0.1);
             padding: 2rem;
             border-radius: 10px;
             text-align: center;
@@ -411,7 +412,7 @@
 
         .price {
             font-size: 2rem;
-            color: var(--indigo-light);
+            color: var(--blue-light);
             margin: 1rem 0;
         }
 
@@ -453,8 +454,8 @@
             border-radius: 10px;
             position: relative;
             overflow: hidden;
-            background-color: rgba(63, 81, 181, 0.1) !important;
-            border: 1px solid var(--indigo-main);
+            background-color: rgba(25, 118, 210, 0.1) !important;
+            border: 1px solid var(--blue-main);
             transition: transform 0.3s ease;
             display: flex;
             align-items: center;
@@ -694,12 +695,12 @@
             <h2>Our Facilitators</h2>
             <div class="facilitators-grid">
                 <div class="facilitator-card">
-                    <div class="facilitator-image" style="background: rgba(63, 81, 181, 0.1); height: 200px; width: 200px; border-radius: 50%; margin: 0 auto;"></div>
+                    <div class="facilitator-image" style="background: rgba(25, 118, 210, 0.1); height: 200px; width: 200px; border-radius: 50%; margin: 0 auto;"></div>
                     <h3>Maya Spirit Guide</h3>
                     <p>Spiritual Guide & Meditation Teacher</p>
                 </div>
                 <div class="facilitator-card">
-                    <div class="facilitator-image" style="background: rgba(63, 81, 181, 0.1); height: 200px; width: 200px; border-radius: 50%; margin: 0 auto;"></div>
+                    <div class="facilitator-image" style="background: rgba(25, 118, 210, 0.1); height: 200px; width: 200px; border-radius: 50%; margin: 0 auto;"></div>
                     <h3>Ocean Wisdom Keeper</h3>
                     <p>Surf Instructor & Movement Guide</p>
                 </div>
