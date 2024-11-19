@@ -52,6 +52,7 @@
         }
 
         .join-button {
+            margin-top: 2rem;
             padding: 1rem 2rem;
             font-size: 1.2rem;
             background-color: var(--blue-main);
@@ -60,6 +61,8 @@
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .join-button:hover {
@@ -225,8 +228,8 @@
         }
 
         .facilitators {
-            padding: 4rem 2rem;
-            background-color: var(--darker-bg);
+            padding: 2rem 0;
+            background-color: var(--dark-bg);
         }
 
         .facilitators-grid {
@@ -277,8 +280,8 @@
         }
 
         .pricing-contact {
-            padding: 4rem 2rem;
-            background-color: var(--darker-bg);
+            padding: 2rem 0;
+            background-color: var(--dark-bg);
         }
 
         .pricing-grid {
@@ -370,18 +373,18 @@
         .section-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 2rem 2rem;
         }
 
         .location, .facilitators, .pricing-contact {
-            padding: 4rem 0;
+            padding: 2rem 0;
             background-color: var(--dark-bg);
         }
 
         h2 {
             text-align: center;
             color: var(--blue-light);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             font-size: 2.5rem;
         }
 
@@ -763,6 +766,13 @@
             <div class="facilitators-grid">
                 <div class="facilitator-card">
                     <div class="facilitator-image">
+                        <img src="Indra.jpeg" alt="Indra Dev">
+                    </div>
+                    <h3>Indra Dev</h3>
+                    <p>Host, Vedic Astrologer & Tour Guide</p>
+                </div>
+                <div class="facilitator-card">
+                    <div class="facilitator-image">
                         <img src="MaryAnn.jpeg" alt="Mary Ann Stancel">
                     </div>
                     <h3>Mary Ann Stancel</h3>
@@ -770,24 +780,17 @@
                 </div>
                 <div class="facilitator-card">
                     <div class="facilitator-image">
-                        <img src="Bryan.jpeg" alt="Ocean Wisdom Keeper">
+                        <img src="Bryan.jpeg" alt="Bryan Ferman">
                     </div>
-                    <h3>Ocean Wisdom Keeper</h3>
-                    <p>Surf Instructor & Movement Guide</p>
+                    <h3>Bryan Ferman</h3>
+                    <p>Surf Instructor & Ocean Wisdom Keeper</p>
                 </div>
                 <div class="facilitator-card">
                     <div class="facilitator-image">
-                        <img src="Sofia.jpeg" alt="Earth Medicine Guide">
+                        <img src="Sofia.jpeg" alt="Sofia Hasbun">
                     </div>
-                    <h3>Earth Medicine Guide</h3>
-                    <p>Permaculture & Natural Medicine Expert</p>
-                </div>
-                <div class="facilitator-card">
-                    <div class="facilitator-image">
-                        <img src="Indra.jpeg" alt="Sacred Dance Guide">
-                    </div>
-                    <h3>Sacred Dance Guide</h3>
-                    <p>Movement & Ecstatic Dance Facilitator</p>
+                    <h3>Sofia Hasbun</h3>
+                    <p>Permaculture & Earth Guide</p>
                 </div>
             </div>
         </div>
@@ -798,24 +801,27 @@
             <h2>Join Our Journey</h2>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3>7-Day Retreat</h3>
+                    <h3>7-Day Experience</h3>
                     <p class="price">$1,999 USD</p>
                     <ul class="features">
-                        <li>All Activities Included</li>
                         <li>Shared Accommodation</li>
                         <li>3 Daily Meals</li>
                         <li>Airport Transfer</li>
+                        <li>Yoga & Meditation Sessions</li>
                     </ul>
-                    <button class="join-button">Book Now</button>
+                    <a href="pricing.html" class="join-button">Book Now</a>
                 </div>
-            </div>
-            <div class="contact-info">
-                <h3>Contact Us</h3>
-                <p>Email: justplantastic@gmail.com</p>
-                <p>Phone: +502 3230 7778</p>
-                <a href="https://wa.me/50232307778" target="_blank" class="whatsapp-link">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
+                <div class="pricing-card">
+                    <h3>7-Day Experience</h3>
+                    <p class="price">$2,499 USD</p>
+                    <ul class="features">
+                        <li>Private Accommodation</li>
+                        <li>3 Daily Meals</li>
+                        <li>Airport Transfer</li>
+                        <li>Yoga & Meditation Sessions</li>
+                    </ul>
+                    <a href="pricing.html" class="join-button">Book Now</a>
+                </div>
             </div>
         </div>
     </section>
@@ -823,8 +829,7 @@
     <footer>
         <div class="footer-content">
             <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/plantastic.experience" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="copyright">
                 <p>&copy; 2024 Indigo Soul Quest. All rights reserved.</p>
