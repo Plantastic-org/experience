@@ -55,7 +55,7 @@
             margin-top: 2rem;
             padding: 1rem 2rem;
             font-size: 1.2rem;
-            background: linear-gradient(135deg, var(--blue-main) 0%, var(--dark-bg) 100%);
+            background: var(--blue-light);
             color: white;
             border: none;
             border-radius: 30px;
@@ -63,11 +63,13 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .join-button:hover {
-            background: linear-gradient(135deg, var(--blue-light) 0%, var(--darker-bg) 100%);
+            background: var(--blue-accent);
             transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         }
 
         .activities {
@@ -127,11 +129,15 @@
         }
 
         .logo {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            height: 40px;
+        }
+
+        .logo-image {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -333,17 +339,19 @@
         .pricing-card button {
             padding: 1rem 2rem;
             font-size: 1.2rem;
-            background: linear-gradient(135deg, var(--blue-main) 0%, var(--dark-bg) 100%);
+            background: var(--blue-light);
             color: white;
             border: none;
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .pricing-card button:hover {
-            background: linear-gradient(135deg, var(--blue-light) 0%, var(--darker-bg) 100%);
+            background: var(--blue-accent);
             transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         }
 
         .contact-info {
@@ -587,6 +595,11 @@
             background: none;
             border: none;
             cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-toggle:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -653,6 +666,20 @@
         .whatsapp-link:hover {
             color: var(--blue-light);
         }
+
+        .logo {
+            color: var(--blue-light);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(66, 165, 245, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--blue-accent);
+            text-shadow: 0 0 15px rgba(66, 165, 245, 0.5);
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -664,7 +691,7 @@
 
     <nav class="navbar">
         <div class="nav-content">
-            <a href="#" class="logo">Indigo Soul Quest</a>
+            <a href="index.html" class="logo"><img src="WebLogo_white.png" alt="Indigo Soul Quest" class="logo-image"></a>
             <button class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </button>

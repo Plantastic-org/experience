@@ -135,17 +135,15 @@
         }
 
         .logo {
-            color: var(--blue-light);
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(66, 165, 245, 0.3);
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            height: 40px;
         }
 
-        .logo:hover {
-            color: var(--blue-accent);
-            text-shadow: 0 0 15px rgba(66, 165, 245, 0.5);
+        .logo-image {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -262,13 +260,49 @@
             color: #6B6B9B;
             font-size: 0.9rem;
         }
+
+        .payment-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .join-button {
+            width: 80%;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            max-width: 250px;
+        }
+
+        .join-button.paypal {
+            background-color: #0070ba;
+        }
+
+        .join-button.paypal:hover {
+            background-color: #005ea6;
+        }
+
+        .join-button.crypto {
+            background-color: #f7931a;
+        }
+
+        .join-button.crypto:hover {
+            background-color: #e88a16;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-content">
-            <a href="index.html" class="logo">Indigo Soul Quest</a>
+            <a href="index.html" class="logo"><img src="WebLogo_white.png" alt="Indigo Soul Quest" class="logo-image"></a>
             <button class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -300,7 +334,14 @@
                         <li>Local Excursions</li>
                         <li>Integration Support</li>
                     </ul>
-                    <button class="join-button">Book Now</button>
+                    <div class="payment-buttons">
+                        <button class="join-button paypal" onclick="processPayment('paypal', 1999)">
+                            <i class="fab fa-paypal"></i> PayPal
+                        </button>
+                        <button class="join-button crypto" onclick="processPayment('crypto', 1999)">
+                            <i class="fab fa-bitcoin"></i> Crypto
+                        </button>
+                    </div>
                 </div>
                 <div class="pricing-card">
                     
@@ -319,7 +360,14 @@
                         <li>Local Excursions</li>
                         <li>Integration Support</li>
                     </ul>
-                    <button class="join-button">Book Now</button>
+                    <div class="payment-buttons">
+                        <button class="join-button paypal" onclick="processPayment('paypal', 2499)">
+                            <i class="fab fa-paypal"></i> PayPal
+                        </button>
+                        <button class="join-button crypto" onclick="processPayment('crypto', 2499)">
+                            <i class="fab fa-bitcoin"></i> Crypto
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -331,5 +379,50 @@
         </div>
         <p class="copyright">© 2024 Indigo Soul Quest. All rights reserved.</p>
     </footer>
+
+    <script>
+        async function processPayment(method, amount) {
+            try {
+                switch (method) {
+                    case 'paypal':
+                        // Initialize PayPal payment
+                        paypal.Buttons({
+                            createOrder: function(data, actions) {
+                                return actions.order.create({
+                                    purchase_units: [{
+                                        amount: {
+                                            value: amount
+                                        }
+                                    }]
+                                });
+                            },
+                            onApprove: function(data, actions) {
+                                return actions.order.capture();
+                            }
+                        }).render('#paypal-button-container');
+                        break;
+
+                    case 'crypto':
+                        // Initialize crypto payment (example using Coinbase Commerce)
+                        const cryptoResponse = await fetch('/create-crypto-charge', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ amount, method }),
+                        });
+                        const charge = await cryptoResponse.json();
+                        window.location.href = charge.hosted_url;
+                        break;
+                }
+            } catch (error) {
+                console.error('Payment processing error:', error);
+                alert('There was an error processing your payment. Please try again.');
+            }
+        }
+    </script>
+
+    <!-- Remove Stripe script and only keep PayPal -->
+    <script src="https://www.paypal.com/sdk/js?client-id=your_paypal_client_id"></script>
 </body>
 </html>
