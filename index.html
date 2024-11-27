@@ -620,29 +620,24 @@
 
             .nav-links {
                 display: none;
-                width: 100%;
                 position: absolute;
                 top: 100%;
                 left: 0;
+                right: 0;
                 background-color: rgba(0, 0, 0, 0.95);
                 padding: 1rem 0;
                 flex-direction: column;
-                align-items: center;
-                text-align: center;
+                width: 100%;
             }
 
             .nav-links.active {
-                display: flex;
+                display: flex !important;
             }
 
             .nav-links a {
                 padding: 1rem;
                 width: 100%;
-                font-size: 1.1rem;
-            }
-
-            .nav-links a:hover {
-                background-color: rgba(67, 97, 238, 0.1);
+                text-align: center;
             }
         }
 
@@ -827,9 +822,81 @@
         }
 
         /* The triangle and dot symbols will now be the same size */
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            width: 100%;
+        }
+
+        /* Add these media queries for better mobile responsiveness */
+        @media (max-width: 768px) {
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 photos per row on tablets */
+            }
+            
+            .location-photo {
+                height: 200px; /* Slightly smaller height on tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+            }
+            
+            .location-photo {
+                height: 180px; /* Even smaller height on mobile */
+            }
+            
+            .location-info {
+                padding: 1rem; /* Smaller padding on mobile */
+            }
+            
+            .location-info h3 {
+                font-size: 1.5rem; /* Smaller heading on mobile */
+            }
+            
+            .location-info p {
+                font-size: 0.9rem; /* Smaller text on mobile */
+            }
+        }
+
+        /* Geist UI customization */
+        [data-geist-button] {
+            background: var(--dark-purple);
+            border: 1px solid var(--blue-light);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        [data-geist-button]:hover {
+            background: var(--blue-main);
+            transform: translateY(-2px);
+        }
+
+        [data-geist-card] {
+            background: rgba(25, 118, 210, 0.1);
+            border: 1px solid var(--blue-main);
+            transition: all 0.3s ease;
+        }
+
+        [data-geist-card]:hover {
+            transform: translateY(-5px);
+            background: rgba(25, 118, 210, 0.2);
+        }
+
+        /* Dark mode support */
+        [data-theme="dark"] {
+            --geist-background: var(--dark-purple);
+            --geist-foreground: var(--text-light);
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@geist-ui/core/dist/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@geist-ui/icons/dist/icons.css">
 </head>
 <body>
     <audio id="bgMusic" loop>
@@ -842,7 +909,7 @@
             <a href="index.html" class="logo">
                 <img src="WebLogo_white.png" alt="Indigo Soul Quest" class="logo-image">
             </a>
-            <button class="menu-toggle">
+            <button class="menu-toggle" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links">
@@ -857,59 +924,61 @@
         <h1>Indigo Soul Quest</h1>
         <p class="tagline">Embark on a transformative journey of self-discovery and spiritual growth</p>
         <div class="button-container">
-            <a href="Pricing.html" class="join-button">
-                ▲ Join Quest
-            </a>
-            <button class="next-button">
-                ● Next One
+            <button class="btn" data-geist-button>
+                <i data-geist-icon="triangle-right"></i>
+                Join Quest
+            </button>
+            <button class="btn" data-geist-button>
+                <i data-geist-icon="circle"></i>
+                Next One
             </button>
         </div>
     </section>
 
     <section class="activities">
         <div class="activities-grid">
-            <div class="activity-card">
-                <i class="fas fa-water"></i>
+            <div class="activity-card" data-geist-card>
+                <i data-geist-icon="droplet"></i>
                 <h3>Surfing</h3>
                 <p>Connect with the ocean's energy and ride the waves</p>
             </div>
-            <div class="activity-card">
-                <i class="fas fa-om"></i>
+            <div class="activity-card" data-geist-card>
+                <i data-geist-icon="om"></i>
                 <h3>Yoga</h3>
                 <p>Align body, mind, and spirit through ancient practices</p>
             </div>
-            <div class="activity-card">
-                <i class="fas fa-spa"></i>
+            <div class="activity-card" data-geist-card>
+                <i data-geist-icon="spa"></i>
                 <h3>Meditation</h3>
                 <p>Journey within and discover inner peace</p>
             </div>
-            <div class="activity-card">
-                <i class="fas fa-seedling"></i>
+            <div class="activity-card" data-geist-card>
+                <i data-geist-icon="seedling"></i>
                 <h3>Permaculture</h3>
                 <p>Learn sustainable living and earth connection</p>
             </div>
-            <div class="activity-card">
-                <i class="fas fa-palette"></i>
+            <div class="activity-card" data-geist-card>
+                <i data-geist-icon="palette"></i>
                 <h3>Natural Dye Workshop</h3>
                 <p>Create with nature's colors and ancient techniques</p>
             </div>
-            <div class="activity-card">
-                <i class="fas fa-mountain"></i>
+            <div class="activity-card" data-geist-card>
+                <i data-geist-icon="mountain"></i>
                 <h3>Nature Excursion</h3>
                 <p>Explore and connect with Mother Earth</p>
             </div>
-            <div class="activity-card">
-                <i class="fas fa-fire"></i>
+            <div class="activity-card" data-geist-card>
+                <i data-geist-icon="fire"></i>
                 <h3>Fire Ceremony</h3>
                 <p>Transform and release through sacred ritual</p>
             </div>
-            <div class="activity-card">
-                <i class="fas fa-hot-tub"></i>
+            <div class="activity-card" data-geist-card>
+                <i data-geist-icon="hot-tub"></i>
                 <h3>Temazcal</h3>
                 <p>Traditional healing and purification ceremony</p>
             </div>
-            <div class="activity-card">
-                <i class="fas fa-music"></i>
+            <div class="activity-card" data-geist-card>
+                <i data-geist-icon="music"></i>
                 <h3>Ecstatic Dance</h3>
                 <p>Free your spirit through conscious movement</p>
             </div>
@@ -1064,25 +1133,49 @@
             const menuToggle = document.querySelector('.menu-toggle');
             const navLinks = document.querySelector('.nav-links');
             
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    navLinks.classList.toggle('active');
-                });
+            // Toggle menu
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                
+                // Toggle icon between bars and times
+                const icon = menuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
 
-                // Close menu when clicking a link
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        navLinks.classList.remove('active');
-                    });
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
                 });
+            });
 
-                // Close menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                        navLinks.classList.remove('active');
-                    }
-                });
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+
+            // Prevent menu from closing when clicking inside
+            navLinks.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/@geist-ui/core/dist/index.js"></script>
+    <script>
+        // Initialize Geist UI
+        window.GeistUI = new GeistProvider({
+            theme: {
+                type: 'dark' // or 'light'
             }
         });
     </script>
