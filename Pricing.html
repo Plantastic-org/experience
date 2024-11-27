@@ -324,6 +324,7 @@
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=Aa-3s29AXnFso68Aio-LympLUeH6K4vJcxXaeZiIcA6U4-ViYTfPRTcRan33ROKB-PW8MkR6lgddLJqT&currency=USD&intent=capture"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -405,50 +406,5 @@
         </div>
         <p class="copyright">© 2024 Indigo Soul Quest. All rights reserved.</p>
     </footer>
-
-    <script>
-        async function processPayment(method, amount) {
-            try {
-                switch (method) {
-                    case 'paypal':
-                        // Initialize PayPal payment
-                        paypal.Buttons({
-                            createOrder: function(data, actions) {
-                                return actions.order.create({
-                                    purchase_units: [{
-                                        amount: {
-                                            value: amount
-                                        }
-                                    }]
-                                });
-                            },
-                            onApprove: function(data, actions) {
-                                return actions.order.capture();
-                            }
-                        }).render('#paypal-button-container');
-                        break;
-
-                    case 'crypto':
-                        // Initialize crypto payment (example using Coinbase Commerce)
-                        const cryptoResponse = await fetch('/create-crypto-charge', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({ amount, method }),
-                        });
-                        const charge = await cryptoResponse.json();
-                        window.location.href = charge.hosted_url;
-                        break;
-                }
-            } catch (error) {
-                console.error('Payment processing error:', error);
-                alert('There was an error processing your payment. Please try again.');
-            }
-        }
-    </script>
-
-    <!-- Remove Stripe script and only keep PayPal -->
-    <script src="https://www.paypal.com/sdk/js?client-id=your_paypal_client_id"></script>
 </body>
 </html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation - Indigo Soul Quest</title>
+    <style>
+        :root {
+            --dark-purple: #1a1a2e;
+            --blue-main: #4361ee;
+            --blue-light: #4895ef;
+            --text-light: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-purple);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 1rem 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 40px;
+        }
+
+        .logo-image {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-light);
+        }
+
+        .donation-section {
+            padding: 8rem 2rem 4rem;
+            min-height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #000000;
+            text-shadow: 
+                0 0 10px rgba(0, 149, 255, 0.75),
+                0 0 20px rgba(0, 149, 255, 0.75),
+                0 0 30px rgba(0, 149, 255, 0.75);
+            opacity: 0.75;
+        }
+
+        .donation-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .donation-amount {
+            background-color: rgba(25, 118, 210, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--blue-main);
+            transition: all 0.3s ease;
+        }
+
+        .donation-amount:hover {
+            transform: translateY(-5px);
+            background-color: rgba(25, 118, 210, 0.2);
+        }
+
+        .donation-amount h3 {
+            color: var(--blue-light);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .donation-amount p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .paypal-container {
+            margin-top: 2rem;
+        }
+
+        footer {
+            background-color: #000000;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: #6B6B9B;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--blue-light);
+        }
+
+        .copyright {
+            color: #6B6B9B;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .donation-options {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Matrix background animation */
+        @keyframes matrix {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 0% 100%;
+            }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, 
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0.05)
+            ), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGElEQVQYV2NkYGD4z4AEGBkQAIMBJgAWyAAOtEMT8wAAAABJRU5ErkJggg==');
+            background-size: auto 200%;
+            animation: matrix 20s linear infinite;
+            z-index: -1;
+            opacity: 0.45;
+        }
+
+        .donate-button {
+            background: #4361ee;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .donate-button:hover {
+            background-color: #3350cc;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <img src="WebLogo_white.png" alt="Indigo Soul Quest" class="logo-image">
+            </a>
+            <div class="nav-links">
+                <a href="index.html#experience">Experience</a>
+                <a href="#donation">Donation</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Donation Section -->
+    <section class="donation-section" id="donation">
+        <div class="donation-container">
+            <h1 class="donation-title">Support Our Mission</h1>
+            <p class="donation-description">
+                Your donation helps us continue spreading consciousness and sustainable living practices. 
+                Every contribution makes a difference in our mission to create positive change in the world.
+            </p>
+
+            <div class="donation-options">
+                <div class="donation-amount">
+                    <h3>$25</h3>
+                    <p>Plant 5 Trees</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_donations" />
+                        <input type="hidden" name="business" value="justplantastic@gmail.com" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="hidden" name="amount" value="25.00" />
+                        <input type="hidden" name="item_name" value="Plant 5 Trees Donation" />
+                        <input type="submit" class="donate-button" value="Donate $25" />
+                    </form>
+                </div>
+                <div class="donation-amount">
+                    <h3>$50</h3>
+                    <p>Support Local Community</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_donations" />
+                        <input type="hidden" name="business" value="justplantastic@gmail.com" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="hidden" name="amount" value="50.00" />
+                        <input type="hidden" name="item_name" value="Support Local Community Donation" />
+                        <input type="submit" class="donate-button" value="Donate $50" />
+                    </form>
+                </div>
+                <div class="donation-amount">
+                    <h3>$100</h3>
+                    <p>Fund Educational Programs</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_donations" />
+                        <input type="hidden" name="business" value="justplantastic@gmail.com" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <input type="hidden" name="amount" value="100.00" />
+                        <input type="hidden" name="item_name" value="Fund Educational Programs Donation" />
+                        <input type="submit" class="donate-button" value="Donate $100" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.instagram.com/plantastic.experience" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Indigo Soul Quest. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu toggle functionality
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 
