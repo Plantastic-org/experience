@@ -225,12 +225,14 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 2rem;
+            position: relative;
         }
 
         .logo {
             display: flex;
             align-items: center;
             height: 40px;
+            z-index: 1001;
         }
 
         .logo-image {
@@ -603,31 +605,30 @@
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
-                padding: 0.5rem;
+                font-size: 1.5rem;
                 color: white;
+                background: none;
+                border: none;
+                cursor: pointer;
                 z-index: 1001;
             }
 
             .nav-content {
-                padding: 1rem;
+                flex-wrap: wrap;
                 justify-content: space-between;
-                align-items: center;
             }
 
             .nav-links {
                 display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
                 width: 100%;
-                height: 100vh;
+                position: absolute;
+                top: 100%;
+                left: 0;
                 background-color: rgba(0, 0, 0, 0.95);
-                padding: 5rem 2rem 2rem;
+                padding: 1rem 0;
                 flex-direction: column;
                 align-items: center;
-                justify-content: flex-start;
-                gap: 2rem;
-                z-index: 1000;
+                text-align: center;
             }
 
             .nav-links.active {
@@ -635,10 +636,13 @@
             }
 
             .nav-links a {
-                font-size: 1.2rem;
                 padding: 1rem;
                 width: 100%;
-                text-align: center;
+                font-size: 1.1rem;
+            }
+
+            .nav-links a:hover {
+                background-color: rgba(67, 97, 238, 0.1);
             }
         }
 
@@ -1055,28 +1059,30 @@
             }
         });
 
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-        });
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navLinks.classList.toggle('active');
+                });
 
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
+                // Close menu when clicking a link
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                    });
+                });
 
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                        navLinks.classList.remove('active');
+                    }
+                });
             }
         });
     </script>
