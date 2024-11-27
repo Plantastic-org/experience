@@ -377,18 +377,18 @@
                     // Calculate BTC amount (rounded to 8 decimal places)
                     const btcAmount = (amountUSD / btcPrice).toFixed(8);
                     
-                    // Show QR modal with correct QR code based on amount
+                    // Show QR modal with amount
                     const modal = document.getElementById('qrModal');
                     const qrImage = modal.querySelector('img');
-                    qrImage.src = `${amountUSD}.jpeg`; // Will use either 1999.jpeg or 2499.jpeg
-                    
                     const btcAmountDiv = document.getElementById('btcAmount');
+                    
+                    qrImage.src = `${amountUSD}.jpeg`;
                     btcAmountDiv.textContent = `Amount: ${btcAmount} BTC`;
                     modal.classList.add('active');
                     
                 } catch (error) {
-                    console.error('Error processing crypto payment:', error);
-                    alert('Error processing cryptocurrency payment. Please try again later.');
+                    console.error('Error fetching BTC price:', error);
+                    alert('Error calculating BTC amount. Please try again later.');
                 }
             }
         }
