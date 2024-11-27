@@ -44,6 +44,7 @@
             background-color: var(--dark-purple);
             color: var(--text-light);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 70px;
         }
 
         .hero {
@@ -59,6 +60,7 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
+            min-height: calc(100vh - 70px);
         }
 
         .hero::before {
@@ -603,41 +605,30 @@
         }
 
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                font-size: 1.5rem;
-                color: white;
-                background: none;
-                border: none;
-                cursor: pointer;
-                z-index: 1001;
-            }
-
-            .nav-content {
-                flex-wrap: wrap;
-                justify-content: space-between;
-            }
-
             .nav-links {
                 display: none;
+                width: 100%;
                 position: absolute;
                 top: 100%;
                 left: 0;
-                right: 0;
                 background-color: rgba(0, 0, 0, 0.95);
                 padding: 1rem 0;
                 flex-direction: column;
-                width: 100%;
+                align-items: center;
             }
 
             .nav-links.active {
-                display: flex !important;
+                display: flex;
             }
 
             .nav-links a {
                 padding: 1rem;
                 width: 100%;
                 text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
             }
         }
 
@@ -862,41 +853,9 @@
                 font-size: 0.9rem; /* Smaller text on mobile */
             }
         }
-
-        /* Geist UI customization */
-        [data-geist-button] {
-            background: var(--dark-purple);
-            border: 1px solid var(--blue-light);
-            color: var(--text-light);
-            transition: all 0.3s ease;
-        }
-
-        [data-geist-button]:hover {
-            background: var(--blue-main);
-            transform: translateY(-2px);
-        }
-
-        [data-geist-card] {
-            background: rgba(25, 118, 210, 0.1);
-            border: 1px solid var(--blue-main);
-            transition: all 0.3s ease;
-        }
-
-        [data-geist-card]:hover {
-            transform: translateY(-5px);
-            background: rgba(25, 118, 210, 0.2);
-        }
-
-        /* Dark mode support */
-        [data-theme="dark"] {
-            --geist-background: var(--dark-purple);
-            --geist-foreground: var(--text-light);
-        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/@geist-ui/core/dist/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/@geist-ui/icons/dist/icons.css">
 </head>
 <body>
     <audio id="bgMusic" loop>
@@ -904,280 +863,6 @@
         Your browser does not support the audio element.
     </audio>
 
-    <nav class="navbar">
-        <div class="nav-content">
-            <a href="index.html" class="logo">
-                <img src="WebLogo_white.png" alt="Indigo Soul Quest" class="logo-image">
-            </a>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links">
-                <a href="#experience">Experience</a>
-                <a href="Donation.html">Donation</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <h1>Indigo Soul Quest</h1>
-        <p class="tagline">Embark on a transformative journey of self-discovery and spiritual growth</p>
-        <div class="button-container">
-            <button class="btn" data-geist-button>
-                <i data-geist-icon="triangle-right"></i>
-                Join Quest
-            </button>
-            <button class="btn" data-geist-button>
-                <i data-geist-icon="circle"></i>
-                Next One
-            </button>
-        </div>
-    </section>
-
-    <section class="activities">
-        <div class="activities-grid">
-            <div class="activity-card" data-geist-card>
-                <i data-geist-icon="droplet"></i>
-                <h3>Surfing</h3>
-                <p>Connect with the ocean's energy and ride the waves</p>
-            </div>
-            <div class="activity-card" data-geist-card>
-                <i data-geist-icon="om"></i>
-                <h3>Yoga</h3>
-                <p>Align body, mind, and spirit through ancient practices</p>
-            </div>
-            <div class="activity-card" data-geist-card>
-                <i data-geist-icon="spa"></i>
-                <h3>Meditation</h3>
-                <p>Journey within and discover inner peace</p>
-            </div>
-            <div class="activity-card" data-geist-card>
-                <i data-geist-icon="seedling"></i>
-                <h3>Permaculture</h3>
-                <p>Learn sustainable living and earth connection</p>
-            </div>
-            <div class="activity-card" data-geist-card>
-                <i data-geist-icon="palette"></i>
-                <h3>Natural Dye Workshop</h3>
-                <p>Create with nature's colors and ancient techniques</p>
-            </div>
-            <div class="activity-card" data-geist-card>
-                <i data-geist-icon="mountain"></i>
-                <h3>Nature Excursion</h3>
-                <p>Explore and connect with Mother Earth</p>
-            </div>
-            <div class="activity-card" data-geist-card>
-                <i data-geist-icon="fire"></i>
-                <h3>Fire Ceremony</h3>
-                <p>Transform and release through sacred ritual</p>
-            </div>
-            <div class="activity-card" data-geist-card>
-                <i data-geist-icon="hot-tub"></i>
-                <h3>Temazcal</h3>
-                <p>Traditional healing and purification ceremony</p>
-            </div>
-            <div class="activity-card" data-geist-card>
-                <i data-geist-icon="music"></i>
-                <h3>Ecstatic Dance</h3>
-                <p>Free your spirit through conscious movement</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="location" id="location">
-        <div class="section-content">
-            <h2>Our Location</h2>
-            <div class="location-grid">
-                <div class="location-info">
-                    <h3>La Libertad, El Salvador</h3>
-                    <p>Located in the surfing paradise of El Salvador's Pacific coast, our retreat center combines the perfect waves, tropical climate, and vibrant culture for your transformative journey.</p>
-                </div>
-                <div class="location-photos">
-                    <div class="photo-grid">
-                        <div class="location-photo">
-                            <img src="Pool.jpeg" alt="Pool View">
-                            <div class="photo-overlay">Pool Area</div>
-                        </div>
-                        <div class="location-photo">
-                            <img src="Wave.jpeg" alt="Wave View">
-                            <div class="photo-overlay">Ocean View</div>
-                        </div>
-                        <div class="location-photo">
-                            <img src="Property.jpeg" alt="Property View">
-                            <div class="photo-overlay">Property View</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="facilitators" id="facilitators">
-        <div class="section-content">
-            <h2>Our Facilitators</h2>
-            <div class="facilitators-grid">
-                <div class="facilitator-card">
-                    <div class="facilitator-image">
-                        <img src="Indra.jpeg" alt="Indra Dev">
-                    </div>
-                    <h3>Indra Dev</h3>
-                    <p>Host, Vedic Astrologer & Tour Guide</p>
-                </div>
-                <div class="facilitator-card">
-                    <div class="facilitator-image">
-                        <img src="MaryAnn.jpeg" alt="Mary Ann Stancel">
-                    </div>
-                    <h3>Mary Ann Stancel</h3>
-                    <p>Sound Healer & Breathwork</p>
-                </div>
-                <div class="facilitator-card">
-                    <div class="facilitator-image">
-                        <img src="Bryan.jpeg" alt="Bryan Ferman">
-                    </div>
-                    <h3>Bryan Ferman</h3>
-                    <p>Surf Instructor & Ocean Wisdom Keeper</p>
-                </div>
-                <div class="facilitator-card">
-                    <div class="facilitator-image">
-                        <img src="Sofia.jpeg" alt="Sofia Hasbun">
-                    </div>
-                    <h3>Sofia Hasbun</h3>
-                    <p>Permaculture & Earth Guide</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="pricing-contact" id="contact">
-        <div class="section-content">
-            <h2>Join Our Journey</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>7-Day Experience</h3>
-                    <p class="price">$1,999 USD</p>
-                    <ul class="features">
-                        <li>Shared Accommodation</li>
-                        <li>3 Daily Meals</li>
-                        <li>Airport Transfer</li>
-                        <li>Yoga & Meditation Sessions</li>
-                    </ul>
-                    <a href="Pricing.html" class="lets-go-button">Let's Go</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>7-Day Experience</h3>
-                    <p class="price">$2,499 USD</p>
-                    <ul class="features">
-                        <li>Private Accommodation</li>
-                        <li>3 Daily Meals</li>
-                        <li>Airport Transfer</li>
-                        <li>Yoga & Meditation Sessions</li>
-                    </ul>
-                    <a href="Pricing.html" class="lets-go-button">Let's Go</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="https://www.instagram.com/plantastic.experience" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 Indigo Soul Quest. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const bgMusic = document.getElementById('bgMusic');
-            
-            // Try to play automatically
-            const playPromise = bgMusic.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.catch(function(error) {
-                    // Auto-play was prevented
-                    console.log("Autoplay prevented:", error);
-                    
-                    // Add a play button as fallback
-                    const playButton = document.createElement('button');
-                    playButton.innerHTML = '🎵 Play Music';
-                    playButton.style.cssText = `
-                        position: fixed;
-                        bottom: 20px;
-                        right: 20px;
-                        padding: 10px 20px;
-                        background-color: var(--indigo-main);
-                        color: white;
-                        border: none;
-                        border-radius: 30px;
-                        cursor: pointer;
-                        z-index: 1000;
-                    `;
-                    
-                    playButton.onclick = function() {
-                        bgMusic.play();
-                        this.style.display = 'none';
-                    };
-                    
-                    document.body.appendChild(playButton);
-                });
-            }
-        });
-
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            
-            // Toggle menu
-            menuToggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                navLinks.classList.toggle('active');
-                
-                // Toggle icon between bars and times
-                const icon = menuToggle.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            });
-
-            // Close menu when clicking a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    const icon = menuToggle.querySelector('i');
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                });
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                    const icon = menuToggle.querySelector('i');
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                }
-            });
-
-            // Prevent menu from closing when clicking inside
-            navLinks.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-        });
-    </script>
-    <script src="https://unpkg.com/@geist-ui/core/dist/index.js"></script>
-    <script>
-        // Initialize Geist UI
-        window.GeistUI = new GeistProvider({
-            theme: {
-                type: 'dark' // or 'light'
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
