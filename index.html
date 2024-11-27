@@ -603,6 +603,8 @@
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
+                padding: 0.5rem;
+                color: white;
             }
 
             .nav-links {
@@ -613,12 +615,19 @@
                 width: 100%;
                 background-color: rgba(0, 0, 0, 0.95);
                 padding: 1rem 0;
+                flex-direction: column;
+                align-items: center;
             }
 
             .nav-links.active {
                 display: flex;
-                flex-direction: column;
-                gap: 1rem;
+            }
+
+            .nav-content {
+                padding: 1rem;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
             }
 
             h1 {
@@ -627,12 +636,6 @@
 
             .tagline {
                 font-size: 1.2rem;
-            }
-
-            .nav-content {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
             }
 
             .activities-grid,
@@ -1081,6 +1084,21 @@
                     document.body.appendChild(playButton);
                 });
             }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
     </script>
 </body>
