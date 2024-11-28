@@ -873,11 +873,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <audio id="bgMusic" loop>
-        <source src="DaysGoBy.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
     <nav class="navbar">
         <div class="nav-content">
             <a href="index.html" class="logo">
@@ -1063,43 +1058,6 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const bgMusic = document.getElementById('bgMusic');
-            
-            // Try to play automatically
-            const playPromise = bgMusic.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.catch(function(error) {
-                    // Auto-play was prevented
-                    console.log("Autoplay prevented:", error);
-                    
-                    // Add a play button as fallback
-                    const playButton = document.createElement('button');
-                    playButton.innerHTML = '🎵 Play Music';
-                    playButton.style.cssText = `
-                        position: fixed;
-                        bottom: 20px;
-                        right: 20px;
-                        padding: 10px 20px;
-                        background-color: var(--indigo-main);
-                        color: white;
-                        border: none;
-                        border-radius: 30px;
-                        cursor: pointer;
-                        z-index: 1000;
-                    `;
-                    
-                    playButton.onclick = function() {
-                        bgMusic.play();
-                        this.style.display = 'none';
-                    };
-                    
-                    document.body.appendChild(playButton);
-                });
-            }
-        });
-
         // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.querySelector('.menu-toggle');

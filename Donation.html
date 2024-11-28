@@ -499,15 +499,14 @@
 
         // Strike API Integration
         const STRIKE_API_URL = "https://api.strike.me/v1/payments";
-        const API_KEY = "1A9A4C845E7ECF0EEBB55A5DA17F38846E0D5DDE17EE7704504227FD61893ABD
-        why"; // Replace with your actual API key
+        const API_KEY = "1A9A4C845E7ECF0EEBB55A5DA17F38846E0D5DDE17EE7704504227FD61893ABD"; // Replace with your actual API key
 
         async function handleStrikePayment() {
             try {
-                const response = await fetch strike.me/indra_bolt, {
+                const response = await fetch("https://strike.me/indra_bolt", {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${1A9A4C845E7ECF0EEBB55A5DA17F38846E0D5DDE17EE7704504227FD61893ABD}`,
+                        'Authorization': `Bearer 1A9A4C845E7ECF0EEBB55A5DA17F38846E0D5DDE17EE7704504227FD61893ABD`,
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
@@ -532,4 +531,4 @@
         }
     </script>
 </body>
-</html> 
+</html>
