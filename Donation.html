@@ -119,6 +119,7 @@
             margin: 2rem auto;
             padding: 0 2rem;
             display: flex;
+            flex-wrap: wrap;
             gap: 2rem;
             justify-content: center;
         }
@@ -127,12 +128,13 @@
             background-color: rgba(16, 24, 39, 0.8);
             border: 2px solid var(--blue-light);
             border-radius: 8px;
-            padding: 3rem 2rem;
+            padding: 2rem 1.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 300px;
+            width: 280px;
+            min-width: 250px;
         }
 
         .donate-button {
@@ -183,7 +185,32 @@
             }
 
             .donation-container {
-                grid-template-columns: 1fr;
+                padding: 0 1rem;
+                gap: 1.5rem;
+            }
+
+            .donation-amount {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .mission-details {
+                padding: 0 1rem;
+                font-size: 1.1rem;
+            }
+
+            .donation-heading {
+                font-size: 1.5rem;
+                padding: 0 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .donate-button,
+            .bitcoin-button {
+                padding: 1rem 2rem;
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
             }
         }
 
@@ -400,6 +427,21 @@
             0% { transform: scale(1); }
             50% { transform: scale(0.95); }
             100% { transform: scale(1); }
+        }
+
+        /* Add small screen adjustments */
+        @media (max-width: 480px) {
+            .pixel-heading {
+                font-size: 3rem;
+            }
+
+            .mission-heading {
+                font-size: 1.75rem;
+            }
+
+            .donation-amount {
+                padding: 1.5rem 1rem;
+            }
         }
     </style>
 </head>
