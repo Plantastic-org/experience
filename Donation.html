@@ -295,13 +295,27 @@
         }
 
         .mission-details {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 2rem auto;
             padding: 0 2rem;
             color: var(--text-light);
             font-size: 1.2rem;
             line-height: 1.6;
+            display: flex;
+            gap: 2rem;
             text-align: center;
+            align-items: flex-start;
+        }
+
+        .mission-column {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 2rem;
+        }
+
+        .mission-column p {
+            margin: 0;
         }
 
         .mission-details p {
@@ -443,6 +457,30 @@
                 padding: 1.5rem 1rem;
             }
         }
+
+        .social-icon {
+            color: white;
+            font-size: 2.5rem; /* Increased from 1.5rem to 2.5rem */
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin-bottom: 1.5rem; /* Add some space between icon and text */
+            display: inline-block;
+        }
+
+        .social-links {
+            margin-bottom: 1.5rem; /* Adjusted spacing for larger icon */
+        }
+
+        .social-icon:hover {
+            color: var(--blue-light);
+        }
+
+        /* Add responsive adjustment */
+        @media (max-width: 768px) {
+            .mission-details {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
@@ -469,9 +507,13 @@
         </h2>
         
         <div class="mission-details">
-            <p>Right now, there are families in our community who are struggling to put food on the table—and street dogs fighting to survive. Every day, we're doing what we can to help by providing meals for people and feeding the dogs who need it most. But we're dreaming bigger.</p>
+            <div class="mission-column">
+                <p>Right now, there are families in our community who are struggling to put food on the table and street dogs fighting to survive. Every day, we're doing what we can to help by providing meals for people and feeding the dogs who need it most. But we're dreaming bigger.</p>
+            </div>
             
-            <p>We believe in a future where our community comes together, grows, and learns together. That's why we're working toward building a Cultural Learning Hub—a place where education, art, and culture can thrive.</p>
+            <div class="mission-column">
+                <p>We believe in a future where our community comes together, grows, and learns together. That's why we're working toward building a Cultural Learning Hub, a place where education, art, and culture can thrive.</p>
+            </div>
         </div>
 
         <h2 class="donation-heading">Your Donation will help some Souls</h2>
@@ -488,7 +530,12 @@
     </section>
 
     <footer>
-        <p>© 2024 Indigo Soul Quest. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/plantastic.lab/" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 Plantastic. All rights reserved.</p>
     </footer>
 
     <script>

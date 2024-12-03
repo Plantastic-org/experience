@@ -784,50 +784,70 @@
                 0 0 25px rgba(0, 149, 255, 0.6);
         }
 
-        .join-button {
+        /* Standardize both buttons */
+        .join-button, .next-button {
+            font-size: 16px; /* Set the same base font size for both buttons */
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 12px 24px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            text-decoration: none;
             border-radius: 25px;
+            cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            width: 140px; /* Fixed width for both buttons */
+            justify-content: center; /* Center content */
+        }
+
+        /* Style for both icons (triangle and square) */
+        .join-button span, .next-button span {
+            font-size: 16px; /* Set base size for both icons */
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1;
+        }
+
+        /* Ensure text is the same size */
+        .join-button, .next-button {
+            font-size: 16px;
+            font-weight: normal;
+            letter-spacing: normal;
+        }
+
+        /* Join Quest button specific styles */
+        .join-button {
+            background-color: rgba(0, 0, 0, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 0 10px rgba(0, 149, 255, 0.75),
+                0 0 20px rgba(0, 149, 255, 0.5);
         }
 
         .join-button:hover {
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: #4195f5;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 
+                0 0 15px rgba(0, 149, 255, 0.85),
+                0 0 25px rgba(0, 149, 255, 0.6);
         }
 
+        /* Next One button specific styles */
         .next-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background-color: #4285f4;
-            color: white;
+            background-color: #000000;
             border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            text-decoration: none;
+            box-shadow: 
+                0 0 10px rgba(0, 149, 255, 0.75),
+                0 0 20px rgba(0, 149, 255, 0.5);
         }
 
         .next-button:hover {
-            background-color: #3367d6;
+            background-color: #4195f5;
             transform: translateY(-2px);
+            box-shadow: 
+                0 0 15px rgba(0, 149, 255, 0.85),
+                0 0 25px rgba(0, 149, 255, 0.6);
         }
-
-        .join-button, .next-button {
-            font-size: 16px; /* Set the same base font size for both buttons */
-        }
-
-        /* The triangle and dot symbols will now be the same size */
 
         .photo-grid {
             display: grid;
@@ -868,6 +888,37 @@
                 font-size: 0.9rem; /* Smaller text on mobile */
             }
         }
+
+        /* Style specifically for the star icon in Next One button */
+        .next-button span {
+            font-size: 14px; /* Adjust size to match visual weight of triangle */
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1;
+            margin-right: 2px; /* Small adjustment for visual balance */
+        }
+
+        /* Keep the triangle icon size in Join Quest button unchanged */
+        .join-button span {
+            font-size: 16px;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 3.5rem; /* Increased to 3.5rem to match the image */
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .social-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icon:hover {
+            color: var(--blue-light);
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -894,10 +945,10 @@
         <p class="tagline">Embark on a transformative journey of self-discovery and spiritual growth</p>
         <div class="button-container">
             <a href="Pricing.html" class="join-button">
-                ▲ Join Quest
+                <span>▲</span> Join Quest
             </a>
             <a href="Donation.html" class="next-button">
-                ● Next One
+                <span>★</span> Give Back
             </a>
         </div>
     </section>
@@ -1049,7 +1100,7 @@
     <footer>
         <div class="footer-content">
             <div class="social-links">
-                <a href="https://www.instagram.com/plantastic.experience" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/plantastic.experience" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="copyright">
                 <p>&copy; 2024 Indigo Soul Quest. All rights reserved.</p>
