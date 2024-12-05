@@ -1190,52 +1190,86 @@
                 background-image: url('Mayan_Coast_Line.png');
                 background-position: center;
                 background-size: cover;
-                height: 100vh; /* Maintain full viewport height */
+                height: 100vh;
+                padding: 0 20px;
             }
 
             .hero::before {
-                background: rgba(0, 0, 0, 0.4); /* Slightly darker overlay for better text readability on mobile */
+                background: rgba(0, 0, 0, 0.5);
             }
 
-            /* Glitch button mobile adjustments */
-            .glitch-button, .glitch-button::after {
-                padding: 8px 30px; /* Smaller padding on mobile */
-                font-size: 16px; /* Smaller font size */
-            }
-
-            /* Update existing mobile button styles */
-            .join-button, .next-button {
-                padding: 8px 30px;
-                font-size: 16px;
-                width: auto; /* Allow buttons to be responsive */
-                min-width: 120px; /* Minimum width to maintain layout */
-            }
-
+            /* Button container adjustments */
             .button-container {
-                flex-direction: column; /* Stack buttons on mobile */
-                gap: 15px; /* Reduced gap between buttons */
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            /* Individual button adjustments */
+            .join-button, .next-button, .glitch-button {
+                width: 100%;
+                padding: 12px 30px;
+                font-size: 18px;
+                text-align: center;
+                justify-content: center;
             }
 
             h1 {
-                font-size: 2.5rem; /* Smaller heading on mobile */
+                font-size: 2.5rem;
+                padding: 0 15px;
+                margin-bottom: 1.5rem;
             }
 
             .tagline {
-                font-size: 1rem; /* Smaller tagline text */
-                padding: 0 15px; /* Add some padding on the sides */
+                font-size: 1.1rem;
+                padding: 0 20px;
+                margin-bottom: 2rem;
             }
         }
 
-        /* Even smaller screens */
+        /* Extra small devices */
         @media (max-width: 480px) {
-            .glitch-button, .glitch-button::after,
-            .join-button, .next-button {
-                padding: 6px 20px;
-                font-size: 14px;
+            .hero {
+                padding: 0 15px;
+            }
+
+            .join-button, .next-button, .glitch-button {
+                padding: 10px 25px;
+                font-size: 16px;
             }
 
             h1 {
                 font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .button-container {
+                max-width: 250px;
+            }
+        }
+
+        /* Ensure proper landscape mode display */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 100px 20px;
+            }
+
+            .button-container {
+                flex-direction: row;
+                justify-content: center;
+                max-width: 500px;
+            }
+
+            .join-button, .next-button, .glitch-button {
+                width: auto;
+                min-width: 200px;
             }
         }
     </style>
