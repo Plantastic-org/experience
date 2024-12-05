@@ -940,14 +940,14 @@
             cursor: not-allowed;
             border-radius: 50%;
             border: 2px solid #444;
-            box-shadow: -10px -10px 10px #4361ee, /* Changed to blue */
-                        0px -10px 10px 0px #3a0ca3, /* Changed to purple */
-                        10px -10px 10px #4895ef, /* Changed to light blue */
-                        10px 0 10px #4361ee, /* Changed to blue */
-                        10px 10px 10px 0px #3a0ca3, /* Changed to purple */
-                        0 10px 10px 0px #4895ef, /* Changed to light blue */
-                        -10px 10px 10px 0px #4361ee; /* Changed to blue */
-            animation: rot55 0.7s linear infinite;
+            box-shadow: -10px -10px 10px #4361ee, 
+                        0px -10px 10px 0px #3a0ca3, 
+                        10px -10px 10px #4895ef, 
+                        10px 0 10px #4361ee, 
+                        10px 10px 10px 0px #3a0ca3, 
+                        0 10px 10px 0px #4895ef, 
+                        -10px 10px 10px 0px #4361ee;
+            animation: rot55 0.7s linear infinite, expand 1.5s ease-in-out infinite alternate;
             position: relative;
         }
 
@@ -965,6 +965,15 @@
         @keyframes rot55 {
             to {
                 transform: rotate(360deg);
+            }
+        }
+
+        @keyframes expand {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.2);
             }
         }
     </style>
