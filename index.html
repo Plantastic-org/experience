@@ -1183,6 +1183,61 @@
                 transform: translate(0);
             }
         }
+
+        /* Existing mobile styles */
+        @media (max-width: 768px) {
+            .hero {
+                background-image: url('Mayan_Coast_Line.png');
+                background-position: center;
+                background-size: cover;
+                height: 100vh; /* Maintain full viewport height */
+            }
+
+            .hero::before {
+                background: rgba(0, 0, 0, 0.4); /* Slightly darker overlay for better text readability on mobile */
+            }
+
+            /* Glitch button mobile adjustments */
+            .glitch-button, .glitch-button::after {
+                padding: 8px 30px; /* Smaller padding on mobile */
+                font-size: 16px; /* Smaller font size */
+            }
+
+            /* Update existing mobile button styles */
+            .join-button, .next-button {
+                padding: 8px 30px;
+                font-size: 16px;
+                width: auto; /* Allow buttons to be responsive */
+                min-width: 120px; /* Minimum width to maintain layout */
+            }
+
+            .button-container {
+                flex-direction: column; /* Stack buttons on mobile */
+                gap: 15px; /* Reduced gap between buttons */
+            }
+
+            h1 {
+                font-size: 2.5rem; /* Smaller heading on mobile */
+            }
+
+            .tagline {
+                font-size: 1rem; /* Smaller tagline text */
+                padding: 0 15px; /* Add some padding on the sides */
+            }
+        }
+
+        /* Even smaller screens */
+        @media (max-width: 480px) {
+            .glitch-button, .glitch-button::after,
+            .join-button, .next-button {
+                padding: 6px 20px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
