@@ -54,7 +54,7 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-            background-image: url('Banner_1.webp');
+            background-image: url('Mayan_Coast_Line.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -978,6 +978,209 @@
             }
             to {
                 transform: scale(1.2);
+            }
+        }
+
+        /* Replace the existing button styles with these new ones */
+        .join-button, .next-button, .lets-go-button {
+            padding: 10px 50px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: transparent;
+            position: relative;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .join-button::after, .next-button::after, .lets-go-button::after {
+            --move1: inset(50% 50% 50% 50%);
+            --move2: inset(31% 0 40% 0);
+            --move3: inset(39% 0 15% 0);
+            --move4: inset(45% 0 40% 0);
+            --move5: inset(45% 0 6% 0);
+            --move6: inset(14% 0 61% 0);
+            clip-path: var(--move1);
+            content: 'GLITCH';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: block;
+        }
+
+        .join-button:hover::after, .next-button:hover::after, .lets-go-button:hover::after {
+            animation: glitch_4011 1s;
+            text-shadow: 10 10px 10px black;
+            animation-timing-function: steps(2, end);
+            text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
+            background-color: transparent;
+            border: 3px solid rgb(0, 255, 213);
+        }
+
+        .join-button:hover, .next-button:hover, .lets-go-button:hover {
+            text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #E94BE8;
+            background-color: transparent;
+            border: 2px solid rgb(0, 255, 213);
+            box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
+        }
+
+        @keyframes glitch_4011 {
+            0% {
+                clip-path: var(--move1);
+                transform: translate(0px,-10px);
+            }
+
+            10% {
+                clip-path: var(--move2);
+                transform: translate(-10px,10px);
+            }
+
+            20% {
+                clip-path: var(--move3);
+                transform: translate(10px,0px);
+            }
+
+            30% {
+                clip-path: var(--move4);
+                transform: translate(-10px,10px);
+            }
+
+            40% {
+                clip-path: var(--move5);
+                transform: translate(10px,-10px);
+            }
+
+            50% {
+                clip-path: var(--move6);
+                transform: translate(-10px,10px);
+            }
+
+            60% {
+                clip-path: var(--move1);
+                transform: translate(10px,-10px);
+            }
+
+            70% {
+                clip-path: var(--move3);
+                transform: translate(-10px,10px);
+            }
+
+            80% {
+                clip-path: var(--move2);
+                transform: translate(10px,-10px);
+            }
+
+            90% {
+                clip-path: var(--move4);
+                transform: translate(-10px,10px);
+            }
+
+            100% {
+                clip-path: var(--move1);
+                transform: translate(0);
+            }
+        }
+
+        .glitch-button, .glitch-button::after {
+            padding: 10px 50px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: var(--dark-purple);
+            position: relative;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .glitch-button::after {
+            --move1: inset(50% 50% 50% 50%);
+            --move2: inset(31% 0 40% 0);
+            --move3: inset(39% 0 15% 0);
+            --move4: inset(45% 0 40% 0);
+            --move5: inset(45% 0 6% 0);
+            --move6: inset(14% 0 61% 0);
+            clip-path: var(--move1);
+            content: 'GLITCH';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: block;
+        }
+
+        .glitch-button:hover::after {
+            animation: glitch_4011 1s;
+            animation-timing-function: steps(2, end);
+            text-shadow: -3px -3px 0px var(--blue-main), 3px 3px 0px var(--blue-light);
+            background-color: transparent;
+            border: 3px solid var(--blue-light);
+        }
+
+        .glitch-button:hover {
+            text-shadow: -1px -1px 0px var(--blue-main), 1px 1px 0px var(--blue-light);
+            background-color: transparent;
+            border: 2px solid var(--blue-light);
+            box-shadow: 0px 10px 10px -10px var(--blue-main);
+        }
+
+        @keyframes glitch_4011 {
+            0% {
+                clip-path: var(--move1);
+                transform: translate(0px,-10px);
+            }
+
+            10% {
+                clip-path: var(--move2);
+                transform: translate(-10px,10px);
+            }
+
+            20% {
+                clip-path: var(--move3);
+                transform: translate(10px,0px);
+            }
+
+            30% {
+                clip-path: var(--move4);
+                transform: translate(-10px,10px);
+            }
+
+            40% {
+                clip-path: var(--move5);
+                transform: translate(10px,-10px);
+            }
+
+            50% {
+                clip-path: var(--move6);
+                transform: translate(-10px,10px);
+            }
+
+            60% {
+                clip-path: var(--move1);
+                transform: translate(10px,-10px);
+            }
+
+            70% {
+                clip-path: var(--move3);
+                transform: translate(-10px,10px);
+            }
+
+            80% {
+                clip-path: var(--move2);
+                transform: translate(10px,-10px);
+            }
+
+            90% {
+                clip-path: var(--move4);
+                transform: translate(-10px,10px);
+            }
+
+            100% {
+                clip-path: var(--move1);
+                transform: translate(0);
             }
         }
     </style>
