@@ -919,11 +919,64 @@
         .social-icon:hover {
             color: var(--blue-light);
         }
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .spinner {
+            width: 3em;
+            height: 3em;
+            cursor: not-allowed;
+            border-radius: 50%;
+            border: 2px solid #444;
+            box-shadow: -10px -10px 10px #4361ee, /* Changed to blue */
+                        0px -10px 10px 0px #3a0ca3, /* Changed to purple */
+                        10px -10px 10px #4895ef, /* Changed to light blue */
+                        10px 0 10px #4361ee, /* Changed to blue */
+                        10px 10px 10px 0px #3a0ca3, /* Changed to purple */
+                        0 10px 10px 0px #4895ef, /* Changed to light blue */
+                        -10px 10px 10px 0px #4361ee; /* Changed to blue */
+            animation: rot55 0.7s linear infinite;
+            position: relative;
+        }
+
+        .spinnerin {
+            border: 2px solid #444;
+            width: 1.5em;
+            height: 1.5em;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes rot55 {
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="loading-screen">
+        <div class="spinner">
+            <div class="spinnerin"></div>
+        </div>
+    </div>
     <nav class="navbar">
         <div class="nav-content">
             <a href="index.html" class="logo">
@@ -1130,6 +1183,32 @@
                 if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
                     navLinks.classList.remove('active');
                 }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get loading screen element
+            const loadingScreen = document.querySelector('.loading-screen');
+            
+            // Hide loading screen after page loads
+            window.addEventListener('load', function() {
+                setTimeout(() => {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 500);
+                }, 1000);
+            });
+
+            // Show loading screen when clicking links
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Only show loading for internal links
+                    if (this.href && this.href.startsWith(window.location.origin)) {
+                        loadingScreen.style.display = 'flex';
+                        loadingScreen.style.opacity = '1';
+                    }
+                });
             });
         });
     </script>
