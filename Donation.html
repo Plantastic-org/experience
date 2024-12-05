@@ -295,27 +295,34 @@
         }
 
         .mission-details {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            color: var(--text-light);
-            font-size: 1.2rem;
-            line-height: 1.6;
-            display: flex;
-            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
             text-align: center;
-            align-items: flex-start;
         }
 
         .mission-column {
-            flex: 1;
             display: flex;
-            align-items: flex-start;
-            padding-top: 2rem;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .mission-column p {
-            margin: 0;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin: 0 0 1.5rem 0;
+            word-spacing: 0.1em;
+            letter-spacing: 0.02em;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .mission-column p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
         }
 
         .mission-details p {
@@ -386,7 +393,7 @@
             color: var(--text-light);  /* White color */
             font-size: 2rem;  /* Reduced from 3rem to 2rem */
             text-align: center;
-            margin-bottom: 3rem;
+            margin: 4rem 0; /* Space above and below heading */
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -481,6 +488,124 @@
                 flex-direction: column;
             }
         }
+
+        /* Add these styles for the image gallery */
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 4rem;
+            margin-bottom: 5rem;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .gallery-image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .image-gallery {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .gallery-image {
+                width: 100%;
+                max-width: 350px;
+                height: auto;
+            }
+        }
+
+        .street-dogs-image {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0 4rem 0; /* Space above and below image */
+        }
+
+        .feature-image {
+            max-width: 800px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .image-gallery {
+                margin-top: 3rem;
+                margin-bottom: 4rem;
+            }
+
+            .donation-heading {
+                font-size: 1.75rem;
+                margin: 3rem 0;
+            }
+
+            .street-dogs-image {
+                margin: 2rem 0 3rem 0;
+            }
+        }
+
+        .carousel-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 4rem auto;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .carousel {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .carousel-image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: all 0.5s ease;
+            opacity: 0.7;
+        }
+
+        /* Center image effect */
+        .carousel-image:nth-child(2) {
+            transform: scale(1.2);
+            opacity: 1;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .carousel {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .carousel-image {
+                width: 100%;
+                max-width: 350px;
+                height: auto;
+            }
+
+            .carousel-image:nth-child(2) {
+                transform: scale(1.1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -508,15 +633,24 @@
         
         <div class="mission-details">
             <div class="mission-column">
-                <p>Right now, there are families in our community who are struggling to put food on the table and street dogs fighting to survive. Every day, we're doing what we can to help by providing meals for people and feeding the dogs who need it most. But we're dreaming bigger.</p>
+                <p>We envision a vibrant future where our community grows and learns together, driven by the creation of a dynamic Cultural Learning Hub. This innovative center will be a thriving space for education, art, and culture, offering opportunities for hosting workshops, seminars, retreats, and a wide variety of events. Beyond its educational and cultural mission, the hub is dedicated to giving back to the community by supporting street dogs and providing essential meals for those in need.</p>
+                <p>Join us in investing in this transformative project, where every contribution makes a meaningful impact on both people and animals, enhancing community well-being and fostering a spirit of unity and growth.</p>
             </div>
             
-            <div class="mission-column">
-                <p>We believe in a future where our community comes together, grows, and learns together. That's why we're working toward building a Cultural Learning Hub, a place where education, art, and culture can thrive.</p>
+            <!-- Add image gallery with more space -->
+            <div class="image-gallery">
+                <img src="Learning_Hub.png" alt="Learning Hub" class="gallery-image">
+                <img src="LH_1.png" alt="Learning Hub Interior" class="gallery-image">
+                <img src="Garden.png" alt="Garden" class="gallery-image">
             </div>
         </div>
 
         <h2 class="donation-heading">Your Donation will help some Souls</h2>
+
+        <!-- Add street dogs image -->
+        <div class="street-dogs-image">
+            <img src="Street_Dogs.png" alt="Street Dogs" class="feature-image">
+        </div>
 
         <div class="donation-container">
             <div class="donation-amount">
@@ -576,6 +710,19 @@
                 alert('An error occurred. Please try again.');
             }
         }
+
+        const carousel = document.querySelector('.carousel');
+        const images = carousel.querySelectorAll('img');
+
+        setInterval(() => {
+            carousel.appendChild(carousel.firstElementChild);
+            images.forEach(img => {
+                img.style.transform = 'scale(1)';
+                img.style.opacity = '0.7';
+            });
+            carousel.children[1].style.transform = 'scale(1.2)';
+            carousel.children[1].style.opacity = '1';
+        }, 3000); // Rotate every 3 seconds
     </script>
 </body>
 </html>
