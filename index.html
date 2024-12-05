@@ -242,7 +242,7 @@
         }
 
         .nav-links {
-            display: flex;
+            display: none;
             gap: 3rem;
             margin-right: 2rem;
         }
@@ -259,6 +259,10 @@
 
         .nav-links a:hover {
             color: var(--blue-light);
+        }
+
+        .nav-links.active {
+            display: flex !important;
         }
 
         footer {
