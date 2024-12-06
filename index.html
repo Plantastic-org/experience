@@ -111,7 +111,7 @@
             cursor: pointer;
             text-decoration: none;
             font-size: 1.1rem;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy easing */
+            transition: none;
         }
 
         .primary-button {
@@ -160,14 +160,14 @@
 
         /* Hover effects */
         .primary-button:hover {
-            animation: jump 0.5s ease infinite;
+            animation: none;
             box-shadow: 
                 0 0 15px rgba(0, 149, 255, 0.85),
                 0 0 25px rgba(0, 149, 255, 0.6);
         }
 
         .outline-button:hover {
-            animation: jump 0.5s ease infinite;
+            animation: none;
             background: #4195f5;
         }
 
@@ -190,12 +190,13 @@
             border-radius: 10px;
             text-align: center;
             border: 1px solid var(--blue-main);
-            transition: all 0.3s ease;
+            opacity: 1 !important;
+            visibility: visible !important;
         }
 
         .activity-card:hover {
-            transform: translateY(-5px);
-            background-color: rgba(25, 118, 210, 0.2);
+            transform: none;
+            background-color: rgba(25, 118, 210, 0.1);
         }
 
         .activity-card h3 {
@@ -212,10 +213,11 @@
         .navbar {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            padding: 1rem 0;
+            background-color: rgba(0, 0, 0, 0.8);
             z-index: 1000;
+            padding: 1rem 0;
         }
 
         .nav-content {
@@ -236,25 +238,23 @@
         }
 
         .logo-image {
-            height: 100%;
+            height: 40px;
             width: auto;
-            object-fit: contain;
         }
 
         .nav-links {
-            display: none;
-            gap: 3rem;
+            display: flex;
+            gap: 2rem;
+            margin-left: auto;
             margin-right: 2rem;
         }
 
         .nav-links a {
-            color: var(--text-light);
+            color: white;
             text-decoration: none;
-            font-size: 1.2rem;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: color 0.3s ease;
-            letter-spacing: 2px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .nav-links a:hover {
@@ -765,7 +765,7 @@
             text-decoration: none;
             font-size: 1.1rem;
             margin-top: 20px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: none;
             box-shadow: 
                 0 0 10px rgba(0, 149, 255, 0.75),
                 0 0 20px rgba(0, 149, 255, 0.5);
@@ -782,7 +782,7 @@
         }
 
         .lets-go-button:hover {
-            animation: bounce 0.5s ease infinite;
+            animation: none;
             box-shadow: 
                 0 0 15px rgba(0, 149, 255, 0.85),
                 0 0 25px rgba(0, 149, 255, 0.6);
@@ -797,7 +797,7 @@
             padding: 12px 24px;
             border-radius: 25px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: none;
             text-decoration: none;
             color: white;
             width: 140px; /* Fixed width for both buttons */
@@ -1272,6 +1272,52 @@
                 min-width: 200px;
             }
         }
+
+        /* Remove all transitions and animations */
+        * {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        /* Fix navigation and scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #experience {
+            scroll-margin-top: 100px;
+            padding-top: 2rem;
+            opacity: 1 !important; /* Force visibility */
+        }
+
+        .activities {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+
+        .activity-card {
+            background-color: rgba(25, 118, 210, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--blue-main);
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Navigation styles without animations */
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-light);
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -1285,16 +1331,16 @@
     <nav class="navbar">
         <div class="nav-content">
             <a href="index.html" class="logo">
-                <img src="WebLogo_white.png" alt="Indigo Soul Quest" class="logo-image">
+                <img src="WebLogo_white.png" alt="Plantastic" class="logo-image">
             </a>
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="Donation.html">Donation</a>
+                <a href="Contact.html">Contact</a>
+            </div>
             <button class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </button>
-            <div class="nav-links">
-                <a href="index.html#experience">EXPERIENCE</a>
-                <a href="Donation.html">DONATION</a>
-                <a href="index.html#contact">CONTACT</a>
-            </div>
         </div>
     </nav>
 
@@ -1311,52 +1357,54 @@
         </div>
     </section>
 
-    <section class="activities">
-        <div class="activities-grid">
-            <div class="activity-card">
-                <i class="fas fa-water"></i>
-                <h3>Surfing</h3>
-                <p>Connect with the ocean's energy and ride the waves</p>
-            </div>
-            <div class="activity-card">
-                <i class="fas fa-om"></i>
-                <h3>Yoga</h3>
-                <p>Align body, mind, and spirit through ancient practices</p>
-            </div>
-            <div class="activity-card">
-                <i class="fas fa-spa"></i>
-                <h3>Meditation</h3>
-                <p>Journey within and discover inner peace</p>
-            </div>
-            <div class="activity-card">
-                <i class="fas fa-seedling"></i>
-                <h3>Permaculture</h3>
-                <p>Learn sustainable living and earth connection</p>
-            </div>
-            <div class="activity-card">
-                <i class="fas fa-palette"></i>
-                <h3>Natural Dye Workshop</h3>
-                <p>Create with nature's colors and ancient techniques</p>
-            </div>
-            <div class="activity-card">
-                <i class="fas fa-mountain"></i>
-                <h3>Nature Excursion</h3>
-                <p>Explore and connect with Mother Earth</p>
-            </div>
-            <div class="activity-card">
-                <i class="fas fa-fire"></i>
-                <h3>Fire Ceremony</h3>
-                <p>Transform and release through sacred ritual</p>
-            </div>
-            <div class="activity-card">
-                <i class="fas fa-hot-tub"></i>
-                <h3>Temazcal</h3>
-                <p>Traditional healing and purification ceremony</p>
-            </div>
-            <div class="activity-card">
-                <i class="fas fa-music"></i>
-                <h3>Ecstatic Dance</h3>
-                <p>Free your spirit through conscious movement</p>
+    <section id="experience" class="activities">
+        <div class="section-content">
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <i class="fas fa-water"></i>
+                    <h3>Surfing</h3>
+                    <p>Connect with the ocean's energy and ride the waves</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-om"></i>
+                    <h3>Yoga</h3>
+                    <p>Align body, mind, and spirit through ancient practices</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-spa"></i>
+                    <h3>Meditation</h3>
+                    <p>Journey within and discover inner peace</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Permaculture</h3>
+                    <p>Learn sustainable living and earth connection</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Natural Dye Workshop</h3>
+                    <p>Create with nature's colors and ancient techniques</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Nature Excursion</h3>
+                    <p>Explore and connect with Mother Earth</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Fire Ceremony</h3>
+                    <p>Transform and release through sacred ritual</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-hot-tub"></i>
+                    <h3>Temazcal</h3>
+                    <p>Traditional healing and purification ceremony</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-music"></i>
+                    <h3>Ecstatic Dance</h3>
+                    <p>Free your spirit through conscious movement</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1467,12 +1515,12 @@
     </footer>
 
     <script>
-        // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.querySelector('.menu-toggle');
             const navLinks = document.querySelector('.nav-links');
             
-            menuToggle.addEventListener('click', function() {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
                 navLinks.classList.toggle('active');
             });
 
