@@ -605,13 +605,122 @@
                 transform: scale(1.1);
             }
         }
+
+        /* Update navbar logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            z-index: 1001;
+        }
+
+        .logo-image {
+            height: 40px;
+            width: auto;
+        }
+
+        /* Update hero background image in CSS */
+        .hero {
+            background-image: url('./images/Banner-1.webp');
+        }
+
+        /* Update mobile hero background in media query */
+        @media (max-width: 768px) {
+            .hero {
+                background-image: url('./images/Banner-1.webp');
+            }
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 75%; /* 4:3 aspect ratio */
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .donation-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .souls-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .donation-image {
+                max-width: 90%;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            font-size: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+                padding: 0 15px;
+            }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-content">
             <a href="index.html" class="logo">
-                <img src="WebLogo_white.png" alt="Indigo Soul Quest" class="logo-image">
+                <img src="images/WebLogo_white.png" alt="Plantastic" class="logo-image">
             </a>
             <button class="menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -636,20 +745,29 @@
                 <p>Join us in investing in this transformative project, where every contribution makes a meaningful impact on both people and animals, enhancing community well-being and fostering a spirit of unity and growth.</p>
             </div>
             
-            <!-- Add image gallery with more space -->
-            <div class="image-gallery">
-                <img src="Learning_Hub.png" alt="Learning Hub" class="gallery-image">
-                <img src="LH_1.png" alt="Learning Hub Interior" class="gallery-image">
-                <img src="Garden.png" alt="Garden" class="gallery-image">
+            <!-- Streamlined image grid with only unique images -->
+            <div class="image-grid">
+                <div class="image-container">
+                    <img src="./Images/Learning_Hub.png" 
+                         alt="Learning Hub"
+                         loading="lazy">
+                </div>
+                
+                <div class="image-container">
+                    <img src="./Images/Garden.png" 
+                         alt="Garden"
+                         loading="lazy">
+                </div>
+                
+                <div class="image-container">
+                    <img src="./Images/Street_Dogs.png" 
+                         alt="Street Dogs"
+                         loading="lazy">
+                </div>
             </div>
         </div>
 
-        <h2 class="donation-heading">Your Donation will help some Souls</h2>
-
-        <!-- Add street dogs image -->
-        <div class="street-dogs-image">
-            <img src="Street_Dogs.png" alt="Street Dogs" class="feature-image">
-        </div>
+        <h1>Your Donation will help some Souls</h1>
 
         <div class="donation-container">
             <div class="donation-amount">
