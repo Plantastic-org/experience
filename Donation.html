@@ -75,14 +75,88 @@
         }
 
         .nav-links a {
-            color: white;
+            font-size: 17px;
+            background: transparent;
+            border: none;
+            padding: 1em 1.5em;
+            color: #ffedd3;
+            text-transform: uppercase;
+            position: relative;
+            transition: 0.5s ease;
+            cursor: pointer;
             text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s ease;
+        }
+
+        .nav-links a::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background-color: #00BFFF;
+            transition: 0.5s ease;
         }
 
         .nav-links a:hover {
-            color: var(--blue-light);
+            color: #000000;
+            transition-delay: 0.5s;
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 0;
+            width: 100%;
+            background-color: #00BFFF;
+            transition: 0.4s ease;
+            z-index: -1;
+        }
+
+        .nav-links a:hover::after {
+            height: 100%;
+            transition-delay: 0.4s;
+            color: #000000;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                padding: 1rem 0;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                padding: 1em;
+            }
+
+            .nav-links a::before,
+            .nav-links a::after {
+                display: none;
+            }
         }
 
         /* Main content */
@@ -104,7 +178,7 @@
         .mission-text {
             max-width: 800px;
             margin: 2rem auto;
-            font-size: 1.2rem;
+            font-size: 0.6em;
         }
 
         /* Donation options */
@@ -155,62 +229,6 @@
             background-color: #000000;
             padding: 3rem 2rem;
             text-align: center;
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
-                padding: 1rem 0;
-                text-align: center;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                padding: 1rem 0;
-            }
-
-            .donation-container {
-                padding: 0 1rem;
-                gap: 1.5rem;
-            }
-
-            .donation-amount {
-                width: 100%;
-                max-width: 320px;
-            }
-
-            .mission-details {
-                padding: 0 1rem;
-                font-size: 1.1rem;
-            }
-
-            .donation-heading {
-                font-size: 1.5rem;
-                padding: 0 1rem;
-                margin-bottom: 2rem;
-            }
-
-            .donate-button,
-            .bitcoin-button {
-                padding: 1rem 2rem;
-                width: 100%;
-                max-width: 200px;
-                text-align: center;
-            }
         }
 
         /* Optional: Add a subtle animation to make the glow "breathe" */

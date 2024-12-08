@@ -32,7 +32,7 @@
         }
 
         :root {
-            --dark-purple: #1a1a2e;
+            --dark-purple: #000000;
             --blue-main: #4361ee;
             --blue-light: #4895ef;
             --text-light: #ffffff;
@@ -250,15 +250,53 @@
         }
 
         .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 17px;
+            background: transparent;
+            border: none;
+            padding: 1em 1.5em;
+            color: #ffedd3;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            position: relative;
+            transition: 0.5s ease;
+            cursor: pointer;
+            text-decoration: none;
+            z-index: 1;
+        }
+
+        .nav-links a::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background-color: #00BFFF;
+            transition: 0.5s ease;
         }
 
         .nav-links a:hover {
-            color: var(--blue-light);
+            color: #000000 !important;
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 0;
+            width: 100%;
+            background-color: #00BFFF;
+            transition: 0.4s ease;
+            z-index: -1;
+        }
+
+        .nav-links a:hover::after {
+            height: 100%;
+            transition-delay: 0.4s;
         }
 
         .nav-links.active {
@@ -1317,6 +1355,24 @@
 
         .nav-links a:hover {
             color: var(--blue-light);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                padding: 1em;
+            }
+
+            .nav-links a::before,
+            .nav-links a::after {
+                display: none;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

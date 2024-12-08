@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --dark-purple: #1a1a2e;
+            --dark-purple: #000000;
             --blue-main: #4361ee;
             --blue-light: #4895ef;
             --text-light: #ffffff;
@@ -52,15 +52,88 @@
         }
 
         .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 17px;
+            background: transparent;
+            border: none;
+            padding: 1em 1.5em;
+            color: #ffedd3;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            position: relative;
+            transition: 0.5s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .nav-links a::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background-color: #00BFFF;
+            transition: 0.5s ease;
         }
 
         .nav-links a:hover {
-            color: var(--blue-light);
+            color: #000000;
+            transition-delay: 0.5s;
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 0;
+            width: 100%;
+            background-color: #00BFFF;
+            transition: 0.4s ease;
+            z-index: -1;
+        }
+
+        .nav-links a:hover::after {
+            height: 100%;
+            transition-delay: 0.4s;
+            color: #000000;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                padding: 1rem 0;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                padding: 1em;
+            }
+
+            .nav-links a::before,
+            .nav-links a::after {
+                display: none;
+            }
         }
 
         /* Contact Form Section */
@@ -201,6 +274,22 @@
             margin-bottom: 5px;
             color: #4299e1;
         }
+
+        .contact-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Update in your existing media query */
+        @media (max-width: 768px) {
+            .contact-image {
+                margin: 1.5rem 0;
+            }
+            /* ... existing mobile styles ... */
+        }
     </style>
 </head>
 <body>
@@ -223,6 +312,7 @@
         <div class="contact-heading">
             <h1>Get in Touch</h1>
             <p>Interested in collaborating or becoming a partner? We'd love to hear from you!</p>
+            <img src="./Images/inspire.jpg" alt="Inspiration" class="contact-image">
         </div>
 
         <form class="contact-form" action="mailto:your-email@example.com" method="POST" enctype="text/plain">
