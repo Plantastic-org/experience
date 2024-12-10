@@ -382,11 +382,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             z-index: 1001;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            padding: 20px;
         }
 
         .qr-modal.active {
@@ -394,8 +395,14 @@
         }
 
         .qr-modal img {
-            max-width: 300px;
-            margin-bottom: 20px;
+            max-width: min(80vw, 400px);
+            width: 100%;
+            height: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
         }
 
         .qr-modal .close-button {
@@ -403,16 +410,33 @@
             top: 20px;
             right: 20px;
             color: white;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
             background: none;
             border: none;
+            padding: 10px;
+            line-height: 1;
         }
 
-        .qr-modal .btc-amount {
+        .qr-modal .btc-amount,
+        .qr-modal .usd-amount {
             color: white;
-            margin-top: 20px;
+            margin: 5px 0;
             font-size: 1.2rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        /* Add media queries for better mobile experience */
+        @media (max-width: 768px) {
+            .qr-modal img {
+                max-width: 90vw;
+            }
+            
+            .qr-modal .btc-amount,
+            .qr-modal .usd-amount {
+                font-size: 1rem;
+            }
         }
 
         .hero {
@@ -425,26 +449,30 @@
         async function processPayment(type, amountUSD) {
             if (type === 'crypto') {
                 try {
-                    // Fetch current Bitcoin price from CoinGecko API
                     const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
                     const data = await response.json();
                     const btcPrice = data.bitcoin.usd;
-                    
-                    // Calculate BTC amount (rounded to 8 decimal places)
                     const btcAmount = (amountUSD / btcPrice).toFixed(8);
                     
-                    // Show QR modal with amount
+                    // Bitcoin address to receive payments
+                    const btcAddress = "bc1q8zwpvamjn4d4f4huq58sg0dzrtg3vv90vvlh23";
+                    
+                    // Generate QR code URL using an API (e.g., QR Code Generator API)
+                    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=bitcoin:${btcAddress}?amount=${btcAmount}`;
+                    
                     const modal = document.getElementById('qrModal');
                     const qrImage = modal.querySelector('img');
                     const btcAmountDiv = document.getElementById('btcAmount');
+                    const usdAmountDiv = document.getElementById('usdAmount');
                     
-                    qrImage.src = `${amountUSD}.jpeg`;
+                    qrImage.src = qrCodeUrl;
                     btcAmountDiv.textContent = `Amount: ${btcAmount} BTC`;
+                    usdAmountDiv.textContent = `($ ${amountUSD.toLocaleString()} USD)`;
                     modal.classList.add('active');
                     
                 } catch (error) {
-                    console.error('Error fetching BTC price:', error);
-                    alert('Error calculating BTC amount. Please try again later.');
+                    console.error('Error:', error);
+                    alert('Error generating QR code. Please try again later.');
                 }
             }
         }
@@ -552,8 +580,9 @@
 
     <div class="qr-modal" id="qrModal">
         <button class="close-button" onclick="closeQRModal()">×</button>
-        <img src="1999.jpeg" alt="Bitcoin QR Code">
+        <img src="" alt="Bitcoin QR Code">
         <div class="btc-amount" id="btcAmount"></div>
+        <div class="usd-amount" id="usdAmount"></div>
     </div>
 </body>
 </html>
