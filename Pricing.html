@@ -387,7 +387,6 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 20px;
         }
 
         .qr-modal.active {
@@ -395,14 +394,23 @@
         }
 
         .qr-modal img {
-            max-width: min(80vw, 400px);
-            width: 100%;
-            height: auto;
+            width: 300px;
+            height: 300px;
             background-color: white;
             padding: 20px;
             border-radius: 10px;
+            margin: 20px;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-            margin: 20px 0;
+            object-fit: contain;
+        }
+
+        .qr-modal .btc-amount,
+        .qr-modal .usd-amount {
+            color: white;
+            margin: 5px 0;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 0 20px;
         }
 
         .qr-modal .close-button {
@@ -414,62 +422,18 @@
             cursor: pointer;
             background: none;
             border: none;
-            padding: 10px;
-            line-height: 1;
         }
 
-        .qr-modal .btc-amount,
-        .qr-modal .usd-amount {
-            color: white;
-            margin: 5px 0;
-            font-size: 1.2rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
-
-        /* Add media queries for better mobile experience */
-        @media (max-width: 768px) {
-            .qr-modal {
-                padding: 10px;
-            }
-
+        @media (max-width: 480px) {
             .qr-modal img {
-                max-width: 90vw;
+                width: 280px;
+                height: 280px;
                 padding: 15px;
-                margin: 15px 0;
             }
             
             .qr-modal .btc-amount,
             .qr-modal .usd-amount {
                 font-size: 1rem;
-                padding: 0 20px;
-                word-break: break-all; /* For long Bitcoin amounts */
-            }
-
-            .qr-modal .close-button {
-                top: 10px;
-                right: 10px;
-                font-size: 24px;
-                padding: 8px;
-            }
-        }
-
-        /* Additional breakpoint for very small devices */
-        @media (max-width: 480px) {
-            .qr-modal img {
-                max-width: 95vw;
-                padding: 10px;
-            }
-
-            .qr-modal .btc-amount,
-            .qr-modal .usd-amount {
-                font-size: 0.9rem;
-            }
-
-            .qr-modal .close-button {
-                top: 5px;
-                right: 5px;
-                font-size: 22px;
             }
         }
 
