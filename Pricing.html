@@ -429,13 +429,47 @@
 
         /* Add media queries for better mobile experience */
         @media (max-width: 768px) {
+            .qr-modal {
+                padding: 10px;
+            }
+
             .qr-modal img {
                 max-width: 90vw;
+                padding: 15px;
+                margin: 15px 0;
             }
             
             .qr-modal .btc-amount,
             .qr-modal .usd-amount {
                 font-size: 1rem;
+                padding: 0 20px;
+                word-break: break-all; /* For long Bitcoin amounts */
+            }
+
+            .qr-modal .close-button {
+                top: 10px;
+                right: 10px;
+                font-size: 24px;
+                padding: 8px;
+            }
+        }
+
+        /* Additional breakpoint for very small devices */
+        @media (max-width: 480px) {
+            .qr-modal img {
+                max-width: 95vw;
+                padding: 10px;
+            }
+
+            .qr-modal .btc-amount,
+            .qr-modal .usd-amount {
+                font-size: 0.9rem;
+            }
+
+            .qr-modal .close-button {
+                top: 5px;
+                right: 5px;
+                font-size: 22px;
             }
         }
 
