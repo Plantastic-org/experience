@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donation - Indigo Soul Quest</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -46,6 +50,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 2rem;
+            position: relative;
         }
 
         .logo {
@@ -128,7 +133,9 @@
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .menu-toggle {
-                display: block;
+                display: block !important;
+                padding: 0.5rem;
+                cursor: pointer;
             }
 
             .nav-links {
@@ -137,25 +144,30 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
+                background-color: rgba(0, 0, 0, 0.95);
                 padding: 1rem 0;
-                text-align: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
             }
 
             .nav-links.active {
-                display: flex;
+                display: flex !important;
             }
 
             .nav-links a {
                 width: 100%;
+                padding: 1rem 2rem;
                 text-align: center;
-                padding: 1em;
+                color: white;
             }
 
-            .nav-links a::before,
-            .nav-links a::after {
-                display: none;
+            .nav-content {
+                padding: 0 1rem;
+            }
+
+            .logo-image {
+                height: 30px;
             }
         }
 
@@ -812,7 +824,10 @@
             const menuToggle = document.querySelector('.menu-toggle');
             const navLinks = document.querySelector('.nav-links');
             
-            menuToggle.addEventListener('click', function() {
+            // Toggle menu when clicking the button
+            menuToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 navLinks.classList.toggle('active');
             });
 
