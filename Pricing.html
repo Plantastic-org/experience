@@ -110,6 +110,7 @@
 
         .join-button {
             padding: 1rem 2rem;
+            width: 20px;
             font-size: 1.2rem;
             background-color: var(--blue-main);
             color: white;
@@ -323,14 +324,14 @@
         }
 
         .join-button {
-            width: 80%;
+            width: 100%;
+            max-width: 250px;
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            max-width: 250px;
         }
 
         .join-button.paypal {
@@ -440,6 +441,11 @@
         .hero {
             background-image: url('../images/Beach_Banner.jpg');
         }
+
+        .btcpay-form {
+            width: 100%;
+            max-width: 250px;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://www.paypal.com/sdk/js?client-id=Aa-3s29AXnFso68Aio-LympLUeH6K4vJcxXaeZiIcA6U4-ViYTfPRTcRan33ROKB-PW8MkR6lgddLJqT&currency=USD&intent=capture"></script>
@@ -536,9 +542,17 @@
                         <a href="https://www.paypal.com/ncp/payment/JGEQDPZ8P4LKJ" class="join-button paypal">
                             <i class="fab fa-paypal"></i> PayPal
                         </a>
-                        <button class="join-button crypto" onclick="processPayment('crypto', 1999)">
-                            <i class="fab fa-bitcoin"></i> Crypto (BTC)
-                        </button>
+                        <form method="POST" action="https://btcpay0.voltageapp.io/api/v1/invoices" class="btcpay-form btcpay-form--block">
+                            <input type="hidden" name="storeId" value="2oTUcZDSiyAv5zkEqLEtX3BVSEAWXDa2qvTGnGxwVv8z" />
+                            <input type="hidden" name="checkoutDesc" value="Indigo Soul Quest - Shared Room" />
+                            <input type="hidden" name="browserRedirect" value="https://itsplantastic.org" />
+                            <input type="hidden" name="price" value="1888" />
+                            <input type="hidden" name="currency" value="USD" />
+                            <input type="hidden" name="defaultPaymentMethod" value="BTC" />
+                            <button type="submit" class="join-button crypto">
+                                <i class="fab fa-bitcoin"></i> BTCPay
+                            </button>
+                        </form>
                     </div>
                 </div>
                 <div class="pricing-card">
@@ -560,9 +574,17 @@
                         <a href="https://www.paypal.com/ncp/payment/GU6HU34698LTL" class="join-button paypal">
                             <i class="fab fa-paypal"></i> PayPal
                         </a>
-                        <button class="join-button crypto" onclick="processPayment('crypto', 2499)">
-                            <i class="fab fa-bitcoin"></i> Crypto (BTC)
-                        </button>
+                        <form method="POST" action="https://btcpay0.voltageapp.io/api/v1/invoices" class="btcpay-form btcpay-form--block">
+                            <input type="hidden" name="storeId" value="2oTUcZDSiyAv5zkEqLEtX3BVSEAWXDa2qvTGnGxwVv8z" />
+                            <input type="hidden" name="checkoutDesc" value="Indigo Soul Quest - Private Room" />
+                            <input type="hidden" name="browserRedirect" value="https://itsplantastic.org" />
+                            <input type="hidden" name="price" value="2499" />
+                            <input type="hidden" name="currency" value="USD" />
+                            <input type="hidden" name="defaultPaymentMethod" value="BTC" />
+                            <button type="submit" class="join-button crypto">
+                                <i class="fab fa-bitcoin"></i> BTCPay
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
