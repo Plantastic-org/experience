@@ -1388,11 +1388,39 @@
                 display: none;
             }
         }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="https://wa.me/+50232307778" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
     <div class="loading-screen">
         <div class="spinner">
             <div class="spinnerin"></div>
@@ -1528,7 +1556,7 @@
                         <img src="./Images/Indra.jpeg" alt="Indra Dev">
                     </div>
                     <h3>Indra Dev</h3>
-                    <p>Host, Vedic Astrologer & Tour Guide</p>
+                    <p>Host & Tour Guide</p>
                 </div>
                 <div class="facilitator-card">
                     <div class="facilitator-image">
