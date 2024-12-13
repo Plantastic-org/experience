@@ -610,6 +610,7 @@
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
             gap: 1rem;
             width: 100%;
         }
@@ -686,6 +687,11 @@
                 width: 100%;
                 text-align: center;
             }
+
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
         }
 
         @media (max-width: 480px) {
@@ -707,6 +713,11 @@
             .facilitator-image {
                 height: 150px;
                 width: 150px;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
             }
         }
 
@@ -894,6 +905,7 @@
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
             gap: 1rem;
             width: 100%;
         }
@@ -902,6 +914,7 @@
         @media (max-width: 768px) {
             .photo-grid {
                 grid-template-columns: repeat(2, 1fr); /* 2 photos per row on tablets */
+                grid-template-rows: repeat(3, 1fr);
             }
             
             .location-photo {
@@ -912,6 +925,7 @@
         @media (max-width: 480px) {
             .photo-grid {
                 grid-template-columns: 1fr; /* Single column on mobile */
+                grid-template-rows: repeat(6, 1fr);
             }
             
             .location-photo {
@@ -1471,7 +1485,7 @@
             <div class="location-grid">
                 <div class="location-info">
                     <h3>La Libertad, El Salvador</h3>
-                    <p>Located in the surfing paradise of El Salvador's Pacific coast, our retreat center combines the perfect waves, tropical climate, and vibrant culture for your transformative journey.</p>
+                    <p>Imagine escaping to the stunning Pacific coast of El Salvador, soaking up the natural beauty, and diving deep into the vibrant local culture. It’s the perfect blend of adventure, relaxation, and self-discovery.</p>
                 </div>
                 <div class="location-photos">
                     <div class="photo-grid">
@@ -1486,6 +1500,18 @@
                         <div class="location-photo">
                             <img src="./Images/Property.jpeg" alt="Property View">
                             <div class="photo-overlay">Property View</div>
+                        </div>
+                        <div class="location-photo">
+                            <img src="./Images/Room2.jpeg" alt="Room View">
+                            <div class="photo-overlay">Deluxe Room</div>
+                        </div>
+                        <div class="location-photo">
+                            <img src="./Images/Sunset.jpeg" alt="Sunset View">
+                            <div class="photo-overlay">Sunset View</div>
+                        </div>
+                        <div class="location-photo">
+                            <img src="./Images/Room1.jpeg" alt="Room View">
+                            <div class="photo-overlay">Standard Room</div>
                         </div>
                     </div>
                 </div>
@@ -1534,24 +1560,24 @@
             <h2>Join Our Journey</h2>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3>7-Day Experience</h3>
+                    <h3>6-Day Experience</h3>
                     <p class="price">$1,999 USD</p>
                     <ul class="features">
                         <li>Shared Accommodation</li>
                         <li>3 Daily Meals</li>
                         <li>Airport Transfer</li>
-                        <li>Yoga & Meditation Sessions</li>
+                        <li>Surf & Yoga Sessions</li>
                     </ul>
                     <a href="Pricing.html" class="lets-go-button">Let's Go</a>
                 </div>
                 <div class="pricing-card">
-                    <h3>7-Day Experience</h3>
+                    <h3>6-Day Experience</h3>
                     <p class="price">$2,499 USD</p>
                     <ul class="features">
                         <li>Private Accommodation</li>
                         <li>3 Daily Meals</li>
                         <li>Airport Transfer</li>
-                        <li>Yoga & Meditation Sessions</li>
+                        <li>Surf & Yoga Sessions</li>
                     </ul>
                     <a href="Pricing.html" class="lets-go-button">Let's Go</a>
                 </div>
