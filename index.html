@@ -1406,12 +1406,54 @@
             justify-content: center;
             text-decoration: none;
             transition: all 0.3s ease;
-            z-index: 100;
+            z-index: 1000;
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1);
             box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 15px;
+                left: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                bottom: 10px;
+                left: 10px;
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
+            }
+        }
+
+        /* Handle landscape mode */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .whatsapp-float {
+                bottom: 10px;
+                left: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+
+        /* Ensure button doesn't overlap with important content */
+        @media (max-width: 768px) {
+            .button-container,
+            .pricing-grid,
+            .activities-grid {
+                margin-bottom: 70px;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
