@@ -449,51 +449,6 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://www.paypal.com/sdk/js?client-id=Aa-3s29AXnFso68Aio-LympLUeH6K4vJcxXaeZiIcA6U4-ViYTfPRTcRan33ROKB-PW8MkR6lgddLJqT&currency=USD&intent=capture"></script>
-    <script>
-        async function processPayment(type, amountUSD) {
-            if (type === 'crypto') {
-                try {
-                    const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
-                    const data = await response.json();
-                    const btcPrice = data.bitcoin.usd;
-                    const btcAmount = (amountUSD / btcPrice).toFixed(8);
-                    
-                    // Bitcoin address to receive payments
-                    const btcAddress = "bc1q8zwpvamjn4d4f4huq58sg0dzrtg3vv90vvlh23";
-                    
-                    // Generate QR code URL using an API (e.g., QR Code Generator API)
-                    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=bitcoin:${btcAddress}?amount=${btcAmount}`;
-                    
-                    const modal = document.getElementById('qrModal');
-                    const qrImage = modal.querySelector('img');
-                    const btcAmountDiv = document.getElementById('btcAmount');
-                    const usdAmountDiv = document.getElementById('usdAmount');
-                    
-                    qrImage.src = qrCodeUrl;
-                    btcAmountDiv.textContent = `Amount: ${btcAmount} BTC`;
-                    usdAmountDiv.textContent = `($ ${amountUSD.toLocaleString()} USD)`;
-                    modal.classList.add('active');
-                    
-                } catch (error) {
-                    console.error('Error:', error);
-                    alert('Error generating QR code. Please try again later.');
-                }
-            }
-        }
-
-        function closeQRModal() {
-            const modal = document.getElementById('qrModal');
-            modal.classList.remove('active');
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('qrModal');
-            if (event.target === modal) {
-                closeQRModal();
-            }
-        }
-    </script>
 </head>
 <body>
     <nav class="navbar">
@@ -542,8 +497,8 @@
                         <a href="https://www.paypal.com/ncp/payment/JGEQDPZ8P4LKJ" class="join-button paypal">
                             <i class="fab fa-paypal"></i> PayPal
                         </a>
-                        <form method="POST" action="https://btcpay0.voltageapp.io/api/v1/invoices" class="btcpay-form btcpay-form--block">
-                            <input type="hidden" name="storeId" value="2oTUcZDSiyAv5zkEqLEtX3BVSEAWXDa2qvTGnGxwVv8z" />
+                        <form method="POST" action="https://btcpay.atitlan.io/api/v1/invoices" class="btcpay-form btcpay-form--block">
+                            <input type="hidden" name="storeId" value="4zQgfZvk9knW7d4bmBso3p27gdNFKouJAGCNvwRvLFSn" />
                             <input type="hidden" name="checkoutDesc" value="Indigo Soul Quest - Shared Room" />
                             <input type="hidden" name="browserRedirect" value="https://itsplantastic.org" />
                             <input type="hidden" name="price" value="1888" />
@@ -574,8 +529,8 @@
                         <a href="https://www.paypal.com/ncp/payment/GU6HU34698LTL" class="join-button paypal">
                             <i class="fab fa-paypal"></i> PayPal
                         </a>
-                        <form method="POST" action="https://btcpay0.voltageapp.io/api/v1/invoices" class="btcpay-form btcpay-form--block">
-                            <input type="hidden" name="storeId" value="2oTUcZDSiyAv5zkEqLEtX3BVSEAWXDa2qvTGnGxwVv8z" />
+                        <form method="POST" action="https:/btcpay.atitlan.io/api/v1/invoices" class="btcpay-form btcpay-form--block">
+                            <input type="hidden" name="storeId" value="4zQgfZvk9knW7d4bmBso3p27gdNFKouJAGCNvwRvLFSn" />
                             <input type="hidden" name="checkoutDesc" value="Indigo Soul Quest - Private Room" />
                             <input type="hidden" name="browserRedirect" value="https://itsplantastic.org" />
                             <input type="hidden" name="price" value="2499" />
