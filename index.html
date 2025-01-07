@@ -54,7 +54,7 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-            background-image: url('./Images/Mayan_Coast_Line.png');
+            background-image: url('./Images/Playa_El Salvador.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -80,7 +80,7 @@
         h1 {
             font-family: 'Press Start 2P', cursive;
             font-size: 4rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             color: #000000;
             text-shadow: 
                 0 0 10px rgba(0, 149, 255, 0.75),
@@ -1239,7 +1239,7 @@
         /* Existing mobile styles */
         @media (max-width: 768px) {
             .hero {
-                background-image: url('./Images/Mayan_Coast_Line.png');
+                background-image: url('./Images/Playa_El Salvador.jpg');
                 background-position: center;
                 background-size: cover;
                 height: 100vh;
@@ -1455,6 +1455,29 @@
                 margin-bottom: 70px;
             }
         }
+
+        /* Add new style for the date/location text */
+        .event-details {
+            font-size: 1.5rem;  /* Smaller than the title */
+            color: #000000;
+            margin-bottom: 1.5rem;
+            text-shadow: 
+                0 0 10px rgba(0, 149, 255, 0.75),
+                0 0 20px rgba(0, 149, 255, 0.75);
+            opacity: 0.75;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        /* Update mobile styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .event-details {
+                font-size: 1rem;
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -1486,6 +1509,7 @@
 
     <section class="hero">
         <h1>Indigo Soul Quest</h1>
+        <p class="event-details">Feb 7-12, La Libertad, El Salvador</p>
         <p class="tagline">Embark on a transformative journey of self-discovery and spiritual growth</p>
         <div class="button-container">
             <a href="Pricing.html" class="join-button">
