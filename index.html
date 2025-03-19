@@ -59,6 +59,8 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
+            padding-bottom: 4rem;
+            margin-bottom: 0;
         }
 
         .hero::before {
@@ -434,30 +436,30 @@
         }
 
         .pricing-contact {
-            padding: 2rem 0;
-            background-color: var(--dark-bg);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), var(--dark-bg));
+            padding: 4rem 0;
+            margin-top: 0;
         }
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .pricing-card {
             background-color: rgba(25, 118, 210, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid var(--blue-main);
-            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(67, 97, 238, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         }
 
         .pricing-card:hover {
+            border-color: var(--blue-light);
             transform: translateY(-5px);
-            background-color: rgba(25, 118, 210, 0.2);
         }
 
         .pricing-card h3 {
@@ -1478,6 +1480,64 @@
                 font-size: 1rem;
             }
         }
+
+        /* Add these new styles in your CSS section */
+        .pricing-contact {
+            /* Update pricing section styling */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), var(--dark-bg));
+            padding: 4rem 0;
+            margin-top: 0;
+        }
+
+        .pricing-grid {
+            /* Adjust pricing grid layout */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .pricing-card {
+            /* Update pricing card styling */
+            background-color: rgba(25, 118, 210, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(67, 97, 238, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .pricing-card:hover {
+            border-color: var(--blue-light);
+            transform: translateY(-5px);
+        }
+
+        /* Adjust mobile responsiveness */
+        @media (max-width: 768px) {
+            .pricing-contact {
+                padding: 2rem 0;
+            }
+            
+            .pricing-grid {
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+        }
+
+        .experience-image-container {
+            width: 100%;
+            height: 200px;
+            margin: 1rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .experience-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -1509,7 +1569,7 @@
 
     <section class="hero">
         <h1>Indigo Soul Quest</h1>
-        <p class="event-details">March 23-28, La Libertad, El Salvador</p>
+        <p class="event-details">To be announced, La Libertad, El Salvador</p>
         <p class="tagline">Embark on a transformative journey of self-discovery and spiritual growth</p>
         <div class="button-container">
             <a href="Pricing.html" class="join-button">
@@ -1518,6 +1578,30 @@
             <a href="Donation.html" class="next-button">
                 <span>★</span> Give Back
             </a>
+        </div>
+    </section>
+
+    <section class="pricing-contact" id="contact">
+        <div class="section-content">
+            <h2>Our Experiences</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Permaculture Experience</h3>
+                    <p class="price">$80 USD</p>
+                    <div class="experience-image-container">
+                        <img src="./Images/LH_2.png" alt="Permaculture" class="experience-image">
+                    </div>
+                    <a href="Pricing.html" class="lets-go-button">Let's Go</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>3-Days Experience</h3>
+                    <p class="price">$300 USD</p>
+                    <div class="experience-image-container">
+                        <img src="./Images/Tazumal_2.jpg" alt="Tazumal Experience" class="experience-image">
+                    </div>
+                    <a href="Pricing.html" class="lets-go-button">Let's Go</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1579,7 +1663,7 @@
             <div class="location-grid">
                 <div class="location-info">
                     <h3>La Libertad, El Salvador</h3>
-                    <p>Imagine escaping to the stunning Pacific coast of El Salvador, soaking up the natural beauty, and diving deep into the vibrant local culture. It’s the perfect blend of adventure, relaxation, and self-discovery.</p>
+                    <p>Imagine escaping to the stunning Pacific coast of El Salvador, soaking up the natural beauty, and diving deep into the vibrant local culture. It's the perfect blend of adventure, relaxation, and self-discovery.</p>
                 </div>
                 <div class="location-photos">
                     <div class="photo-grid">
@@ -1644,36 +1728,6 @@
                     </div>
                     <h3>Sofia Hasbun</h3>
                     <p>Permaculture & Earth Guide</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="pricing-contact" id="contact">
-        <div class="section-content">
-            <h2>Join Our Journey</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>6-Day Experience</h3>
-                    <p class="price">$1,999 USD</p>
-                    <ul class="features">
-                        <li>Shared Accommodation</li>
-                        <li>3 Daily Meals</li>
-                        <li>Airport Transfer</li>
-                        <li>Surf & Yoga Sessions</li>
-                    </ul>
-                    <a href="Pricing.html" class="lets-go-button">Let's Go</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>6-Day Experience</h3>
-                    <p class="price">$2,499 USD</p>
-                    <ul class="features">
-                        <li>Private Accommodation</li>
-                        <li>3 Daily Meals</li>
-                        <li>Airport Transfer</li>
-                        <li>Surf & Yoga Sessions</li>
-                    </ul>
-                    <a href="Pricing.html" class="lets-go-button">Let's Go</a>
                 </div>
             </div>
         </div>
