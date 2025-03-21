@@ -446,6 +446,21 @@
             width: 100%;
             max-width: 250px;
         }
+
+        .experience-image-container {
+            width: 100%;
+            height: 200px;
+            margin: 1rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .experience-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://www.paypal.com/sdk/js?client-id=Aa-3s29AXnFso68Aio-LympLUeH6K4vJcxXaeZiIcA6U4-ViYTfPRTcRan33ROKB-PW8MkR6lgddLJqT&currency=USD&intent=capture"></script>
@@ -470,7 +485,7 @@
     <section class="pricing-hero">
         <img src="./Images/Beach_Banner.jpg" alt="Beach Banner" class="hero-image">
         <div class="hero-text">
-            <h1>Choose your Package</h1>
+            <h1>Book your Experience</h1>
             <p>Break free from the Ordinary</p>
         </div>
     </section>
@@ -479,29 +494,26 @@
         <div class="section-content">
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3>6 Days Experience</h3>
-                    <p class="price">$1,999 USD</p>
+                    <h3>Permaculture Experience</h3>
+                    <p class="price">$80 USD</p>
+                    <div class="experience-image-container">
+                        <img src="./Images/LH_2.png" alt="Permaculture Experience" class="experience-image">
+                    </div>
                     <ul class="features">
-                        <li>Shared Accommodation</li>
-                        <li>3 Daily Meals</li>
-                        <li>Airport Transfer</li>
-                        <li>Yoga & Meditation Sessions</li>
-                        <li>Surfing Lessons</li>
-                        <li>Sacred Ceremonies</li>
-                        <li>Personal Guide</li>
-                        <li>Advanced Workshops</li>
-                        <li>Healing Sessions</li>
-                        <li>Local Excursions</li>
+                        <li>Transportation</li>
+                        <li>Harvest Experience</li>
+                        <li>Cooking Class</li>
+                        <li>Meal</li>
                     </ul>
                     <div class="payment-buttons">
-                        <a href="https://www.paypal.com/ncp/payment/JGEQDPZ8P4LKJ" class="join-button paypal">
+                        <a href="https://www.paypal.com/ncp/payment/EHYEKDRM9QUWL" class="join-button paypal">
                             <i class="fab fa-paypal"></i> PayPal
                         </a>
                         <form method="POST" action="https://btcpay.atitlan.io/api/v1/invoices" class="btcpay-form btcpay-form--block">
                             <input type="hidden" name="storeId" value="4zQgfZvk9knW7d4bmBso3p27gdNFKouJAGCNvwRvLFSn" />
-                            <input type="hidden" name="checkoutDesc" value="Indigo Soul Quest - Shared Room" />
+                            <input type="hidden" name="checkoutDesc" value="Indigo Soul Quest - Permaculture Experience" />
                             <input type="hidden" name="browserRedirect" value="https://itsplantastic.org" />
-                            <input type="hidden" name="price" value="1600" />
+                            <input type="hidden" name="price" value="80" />
                             <input type="hidden" name="currency" value="USD" />
                             <input type="hidden" name="defaultPaymentMethod" value="BTC" />
                             <button type="submit" class="join-button crypto">
@@ -511,29 +523,26 @@
                     </div>
                 </div>
                 <div class="pricing-card">
-                    <h3>6 Days Experience</h3>
-                    <p class="price">$2,499 USD</p>
+                    <h3>3-Day Experience</h3>
+                    <p class="price">$300 USD</p>
+                    <div class="experience-image-container">
+                        <img src="./Images/Surf_camp.webp" alt="3-Day Experience" class="experience-image">
+                    </div>
                     <ul class="features">
-                        <li>Private Accommodation</li>
-                        <li>3 Daily Meals</li>
-                        <li>Airport Transfer</li>
-                        <li>Yoga & Meditation Sessions</li>
-                        <li>Surfing Lessons</li>
-                        <li>Sacred Ceremonies</li>
-                        <li>Personal Guide</li>
-                        <li>Advanced Workshops</li>
-                        <li>Healing Sessions</li>
-                        <li>Local Excursions</li>
+                        <li>Surf & Yoga Sessions</li>
+                        <li>Meals</li>
+                        <li>Natural Dyes Workshop</li>
+                        <li>Transportation</li>
                     </ul>
                     <div class="payment-buttons">
-                        <a href="https://www.paypal.com/ncp/payment/GU6HU34698LTL" class="join-button paypal">
+                        <a href="https://www.paypal.com/ncp/payment/HAAV8PKWXWXTL" class="join-button paypal" target="_blank">
                             <i class="fab fa-paypal"></i> PayPal
                         </a>
                         <form method="POST" action="https://btcpay.atitlan.io/api/v1/invoices" class="btcpay-form btcpay-form--block">
                             <input type="hidden" name="storeId" value="4zQgfZvk9knW7d4bmBso3p27gdNFKouJAGCNvwRvLFSn" />
-                            <input type="hidden" name="checkoutDesc" value="Indigo Soul Quest - Private Room" />
+                            <input type="hidden" name="checkoutDesc" value="Indigo Soul Quest - 3-Day Experience" />
                             <input type="hidden" name="browserRedirect" value="https://itsplantastic.org" />
-                            <input type="hidden" name="price" value="2000" />
+                            <input type="hidden" name="price" value="300" />
                             <input type="hidden" name="currency" value="USD" />
                             <input type="hidden" name="defaultPaymentMethod" value="BTC" />
                             <button type="submit" class="join-button crypto">
